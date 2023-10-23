@@ -1,0 +1,38 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins/reset.scss';
+@import '../../../scss/mixins/utils.scss';
+@import '../../../scss/mixins/text.scss';
+
+.button {
+  @include reset-button();
+  @include focus();
+  padding: 12px 27px;
+  position: relative;
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.icon {
+  @include vertical-center();
+  left: 16px;
+}
+
+.icon_button {
+  padding-left: 35px;
+}
+
+.filled {
+  background-color: $main-color;
+  color: $main-white;
+}
+
+.outline {
+  background-color: $main-white;
+  border: none;
+}
+
+.label {
+  @include textSemibold-16();
+}

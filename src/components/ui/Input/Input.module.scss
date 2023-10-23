@@ -1,0 +1,37 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins/reset.scss';
+@import '../../../scss/mixins/utils.scss';
+@import '../../../scss/mixins/text.scss';
+
+.input {
+  @include reset-input();
+  @include focus();
+  @include textRegular-16();
+  border: $search-border;
+  border-radius: 25px;
+  color: black;
+  height: max-content;
+  padding: 8px 12px;
+  width: 420px;
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &::placeholder {
+  }
+}
+
+.icon {
+  @include vertical-center();
+  left: 12px;
+}
+
+.icon_input {
+  padding-left: 35px;
+}
+
+.container {
+  position: relative;
+  width: max-content;
+}

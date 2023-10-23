@@ -1,0 +1,1 @@
+export { MangaBlock } from './MangaBlock';

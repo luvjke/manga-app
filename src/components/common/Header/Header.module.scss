@@ -1,0 +1,24 @@
+@import '../../../scss/mixins/text.scss';
+
+.container {
+  max-width: 1440px;
+  padding: 17px 10px 15px;
+}
+
+.container_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_input {
+  margin-top: 10px;
+}
+
+.container_buttons {
+  margin-top: 8px;
+}
+
+.title {
+  @include textMedium-40();
+  letter-spacing: 2px;
+}
