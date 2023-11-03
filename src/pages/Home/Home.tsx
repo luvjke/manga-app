@@ -1,32 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Header } from '../../components/common/Header';
 import { MangaBlock } from '../../components/common/MangaBlock';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { fetchManga } from '../../redux/MangaSlice/asyncAction';
-import { mangasData } from '../../redux/MangaSlice/selectors';
+import { useGetMangaQuery } from '../../redux/api/Services';
 
 export const Home = () => {
-  const dispatch = useAppDispatch();
-  const mangalist = useAppSelector(mangasData);
-
-  useEffect(() => {
-    dispatch(fetchManga());
-  }, [dispatch]);
-  console.log(mangalist);
+  const { data: MangaArray, isLoading: mangaLoading } = useGetMangaQuery(
+    'manga?limit=25&contentRating[]=safe'
+  );
+  const LastUpdates = [
+    {
+      items: MangaArray?.data,
+    },
+  ];
+  if (mangaLoading) {
+    return <div>Загрузка...</div>;
+  }
   return (
     <main>
       <Header />
-      <div>
-        {mangalist?.map((mangaData) => (
-          <MangaBlock
-            key={mangaData.id}
-            title={mangaData.attributes.title.en}
-            mangaId={mangaData.id}
-            coverId={mangaData.relationships.find(({ type }) => type === 'cover_art')?.id || ''}
-          />
-        ))}
-      </div>
+      <div>{LastUpdates?.map((props, index) => <MangaBlock {...props} key={index} />)}</div>
     </main>
   );
 };

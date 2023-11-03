@@ -18,10 +18,12 @@ export interface MangaData {
     description: {
       en: string;
     };
+    contentRating: string;
   };
   relationships: Relationship[];
 }
 interface Relationship {
+  attributes: any;
   id: string;
   type: string;
 }

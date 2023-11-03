@@ -1,7 +1,10 @@
-.wrapper {
-  max-width: 180px;
-}
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins/utils.scss';
+@import '../../../scss/mixins/text.scss';
+@import '../../../scss/mixins/reset.scss';
 
-.title {
-  color: black;
+.container {
+  background: $black-theme;
+  display: flex;
+  flex-wrap: wrap;
 }

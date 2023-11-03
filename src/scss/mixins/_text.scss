@@ -19,7 +19,13 @@
 
 @mixin textMedium-40 {
   @include basic-text();
-  color: $main-color;
+  color: $main-blue;
   font-size: 40px;
   font-weight: $font-weight-regular;
+}
+
+@mixin textBold-9 {
+  @include basic-text();
+  font-size: 9px;
+  font-weight: $font-weight-bold;
 }

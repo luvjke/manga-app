@@ -1,0 +1,25 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins/utils.scss';
+@import '../../../scss/mixins/text.scss';
+@import '../../../scss/mixins/reset.scss';
+
+.item {
+  @include textBold-9();
+}
+
+.image {
+  height: 280px;
+  width: 186px;
+}
+
+.infocontainer {
+  background: $main-blue;
+  display: flex;
+  flex-direction: column;
+  height: 41px;
+  width: 186px;
+
+  .titlename {
+    text-align: center;
+  }
+}

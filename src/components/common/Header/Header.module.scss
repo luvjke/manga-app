@@ -1,7 +1,9 @@
 @import '../../../scss/mixins/text.scss';
+@import '../../../scss/variables.scss';
 
 .container {
-  max-width: 1440px;
+  background: $black-theme;
+  max-width: 100%;
   padding: 17px 10px 15px;
 }
 
