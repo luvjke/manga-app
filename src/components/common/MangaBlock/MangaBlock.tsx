@@ -7,14 +7,15 @@ import { MangaBlockItem } from '../MangaBlockItem';
 export const MangaBlock = ({ items }: MangaCardProps) => {
   return (
     <div className={styles.container}>
-      {items?.map(({ id, attributes, relationships }) => (
+      {items?.map((mangaData) => (
         <MangaBlockItem
-          key={id}
-          id={id}
-          attributes={attributes}
+          key={mangaData.id}
+          id={mangaData.id}
+          attributes={mangaData.attributes}
           // @ts-ignore
-          coverId={relationships.find(({ type }) => type === 'cover_art')?.id || ''}
-          contentRating={attributes?.contentRating}
+          coverId={mangaData.relationships.find(({ type }) => type === 'cover_art')?.id || ''}
+          contentRating={mangaData.attributes?.contentRating}
+          mangaData={mangaData}
         />
       ))}
     </div>

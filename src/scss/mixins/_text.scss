@@ -1,7 +1,7 @@
 @import '../variables.scss';
 @mixin basic-text {
-  color: $main-black;
-  font-family: $font-family-lato;
+  color: $main-white;
+  font-family: $font-family-exo2;
   font-style: normal;
   line-height: normal;
 }
@@ -28,4 +28,22 @@
   @include basic-text();
   font-size: 9px;
   font-weight: $font-weight-bold;
+}
+
+@mixin textBold-45 {
+  @include basic-text();
+  font-size: 45px;
+  font-weight: $font-weight-bold;
+}
+
+@mixin textSemibold-22 {
+  @include basic-text();
+  font-size: 22px;
+  font-weight: $font-weight-semi-bold;
+}
+
+@mixin textRegular-18 {
+  @include basic-text();
+  font-size: 18px;
+  font-weight: $font-weight-regular;
 }

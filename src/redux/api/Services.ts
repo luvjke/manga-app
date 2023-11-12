@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
 import { MangaObject } from './types/manga';
 import { CoverObject } from './types/cover';
+import { ChapterData } from './types/chapter';
 
 export const mangaApi = createApi({
   reducerPath: 'mangaApi',
@@ -13,6 +14,9 @@ export const mangaApi = createApi({
     getCover: builder.query<CoverObject, string>({
       query: (id) => `cover/${id}`,
     }),
+    getChapters: builder.query<ChapterData[], string>({
+      query: (id) => `manga/${id}/feed?translatedLanguage[]=en&limit=100`,
+    }),
   }),
 });
-export const { useGetMangaQuery, useGetCoverQuery } = mangaApi;
+export const { useGetMangaQuery, useGetCoverQuery, useGetChaptersQuery } = mangaApi;

@@ -4,7 +4,14 @@
 @import '../../../scss/mixins/reset.scss';
 
 .container {
-  background: $black-theme;
-  display: flex;
-  flex-wrap: wrap;
+  column-gap: 27px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  @media (max-width: 1060px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

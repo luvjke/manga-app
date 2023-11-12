@@ -1,0 +1,22 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins/text.scss';
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  .image {
+    width: 400px;
+  }
+
+  .h404 {
+    @include textBold-45();
+  }
+
+  p {
+    @include textRegular-16();
+  }
+}

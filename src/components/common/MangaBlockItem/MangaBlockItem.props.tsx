@@ -1,6 +1,5 @@
 export interface ItemBlock {
   id: string;
-
   attributes: {
     title: {
       en: string;
@@ -9,7 +8,7 @@ export interface ItemBlock {
       en: string;
     };
   };
-
   coverId: string;
   contentRating: string;
+  mangaData: Object;
 }

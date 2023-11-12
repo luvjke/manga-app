@@ -14,12 +14,13 @@
 
 .infocontainer {
   background: $main-blue;
-  display: flex;
-  flex-direction: column;
   height: 41px;
   width: 186px;
 
   .titlename {
+    overflow: hidden;
     text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
