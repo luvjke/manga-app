@@ -5,6 +5,7 @@ import styles from './MangaBlock.module.scss';
 import { MangaBlockItem } from '../MangaBlockItem';
 
 export const MangaBlock = ({ items }: MangaCardProps) => {
+  console.log(items);
   return (
     <div className={styles.container}>
       {items?.map((mangaData) => (

@@ -1,0 +1,13 @@
+@import '../../../scss/variables.scss';
+
+.icon_button {
+  background-color: $block-background;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  height: 36px;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  width: 36px;
+}

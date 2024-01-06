@@ -1,1 +1,0 @@
-export { ChapterInfo } from './ChapterInfo';

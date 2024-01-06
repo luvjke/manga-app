@@ -1,22 +1,17 @@
 @import '../../../scss/mixins/text.scss';
 @import '../../../scss/variables.scss';
+@import '../../../scss//mixins/reset.scss';
 
-.container {
+.header {
+  background-color: #232323;
   max-width: 100%;
-  padding: 17px 10px 15px;
 }
 
-.container_content {
+.header_nav {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
-}
-
-.container_input {
-  margin-top: 10px;
-}
-
-.container_buttons {
-  margin-top: 8px;
+  margin: 0 24px;
 }
 
 .title {

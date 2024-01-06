@@ -14,6 +14,10 @@ export interface MangaData {
   attributes: {
     title: {
       en: string;
+      'ja-ro'?: string;
+      ja?: string;
+      ru?: string;
+      ko?: string;
     };
     description: {
       en: string;
@@ -23,6 +27,7 @@ export interface MangaData {
     tags: Tag[];
     status: string;
     altTitles: AltTitle[];
+    publicationDemographic: string;
   };
   relationships: Relationship[];
 }

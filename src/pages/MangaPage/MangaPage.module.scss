@@ -1,0 +1,5 @@
+@import '../../scss/mixins/text.scss';
+
+.wrapper {
+  @include textRegular-18();
+}

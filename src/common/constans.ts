@@ -1,6 +1,7 @@
 export const RoutesMap = {
   MAIN: '/',
   MANGA: '/manga/:id',
+  CHAPTER: '/manga/:id/:id',
 };
 
 export const ApiRoutes = {

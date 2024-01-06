@@ -7,6 +7,14 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
   const [increaseDesc, setincreaseDesc] = useState(false);
 
   const showDesc = () => setincreaseDesc(!increaseDesc);
+
+  const title =
+    mangaData.attributes.title.en ||
+    mangaData?.attributes.title['ja-ro'] ||
+    mangaData?.attributes.title.ja ||
+    mangaData?.attributes.title.ru ||
+    mangaData?.attributes.title.ko;
+
   return (
     <div className={styles.container}>
       <div className={styles.summary_image}>
@@ -19,19 +27,22 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
       <div className={styles.summary_content}>
         <div className={styles.post_content}>
           <div className={styles.titles}>
-            <h2 className={styles.title_main}>{mangaData?.attributes.title.en}</h2>
+            {<h2 className={styles.title_main}>{title}</h2>}
             <span className={styles.status}>[{mangaData?.attributes.status}]</span>
           </div>
+
           <div
             onClick={showDesc}
             className={increaseDesc ? styles.description_full : styles.description_hide}
           >
-            {mangaData?.attributes.description.en || ' No Description here :('}
+            <h3 className={styles.synopsis_title}>Synopsis of {title} </h3>
+            {mangaData?.attributes.description.en || ' No Description here'}
           </div>
           <div className={styles.post_status}>
             <h3>Info</h3>
             <p className={styles.post_span}>
               <span>release {mangaData?.attributes.year || '?'}</span>
+              <span>genre {mangaData?.attributes.publicationDemographic || '?'}</span>
             </p>
             <p className={styles.post_span}></p>
           </div>

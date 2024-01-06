@@ -7,12 +7,11 @@
   @include reset-input();
   @include focus();
   @include textRegular-16();
-  border: $search-border;
-  border-radius: 25px;
-  color: black;
+  background-color: rgb(67, 66, 66);
+  color: rgb(255, 255, 255);
   height: max-content;
   padding: 8px 12px;
-  width: 420px;
+  width: 220px;
 
   &:disabled {
     pointer-events: none;

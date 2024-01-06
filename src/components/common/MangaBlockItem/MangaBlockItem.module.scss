@@ -7,13 +7,20 @@
   @include textBold-9();
 }
 
-.image {
-  height: 280px;
-  width: 186px;
+.image_block {
+  .image {
+    height: 280px;
+    width: 186px;
+
+    &:hover {
+      border: 4px solid rgb(0, 0, 0);
+      box-shadow: 0 15px 40px -10px rgb(222, 222, 222);
+    }
+  }
 }
 
 .infocontainer {
-  background: $main-blue;
+  background: $black-theme;
   height: 41px;
   width: 186px;
 

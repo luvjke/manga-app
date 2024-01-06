@@ -1,3 +1,12 @@
+export interface ChapterObject {
+  result: string;
+  response: string;
+  data: ChapterData[];
+  limit: number;
+  offset: number;
+  total: number;
+}
+
 export interface ChapterData {
   id: string;
   type: string;
@@ -22,4 +31,16 @@ interface Attributes {
   updatedAt: string;
   pages: number;
   version: number;
+}
+
+export interface SoloChapterObject {
+  result: string;
+  chapter: SoloChapterData;
+  hash: string;
+}
+
+export interface SoloChapterData {
+  data: [];
+  dataSaver: [];
+  hash: string;
 }

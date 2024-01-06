@@ -1,5 +1,6 @@
 @import '../../../scss/mixins/text.scss';
 @import '../../../scss/variables.scss';
+@import '../../../scss/mixins/reset.scss';
 
 .container {
   background-color: $block-background;
@@ -7,7 +8,6 @@
   flex-direction: column;
   margin: 24px;
   overflow: hidden;
-  @include textRegular-18();
 
   @media (min-width: 640px) {
     align-items: center;
@@ -18,18 +18,22 @@
   }
 }
 
-.image {
-  height: fit-content;
-  width: 100%;
+.summary_image {
+  min-height: fit-content;
 
-  @media (min-width: 640px) {
-    border-radius: 8px;
-    margin-top: 24px;
-    width: 276px;
-  }
-  @media (min-width: 768px) {
-    border-radius: 0;
-    margin: 0;
+  .image {
+    height: fit-content;
+    width: 100%;
+
+    @media (min-width: 640px) {
+      border-radius: 8px;
+      margin-top: 24px;
+      width: 276px;
+    }
+    @media (min-width: 768px) {
+      border-radius: 0;
+      margin: 0;
+    }
   }
 }
 
@@ -86,12 +90,29 @@
     }
   }
 
+  .synopsis_title {
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .post_status {
     margin-top: 15px;
   }
 
   .post_span {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
     text-transform: uppercase;
     width: fit-content;
+  }
+
+  .post_category {
+    margin-top: 15px;
+
+    .post_tags {
+      margin-top: 5px;
+    }
   }
 }
