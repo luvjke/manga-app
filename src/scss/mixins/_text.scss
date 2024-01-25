@@ -36,9 +36,9 @@
   font-weight: $font-weight-bold;
 }
 
-@mixin textSemibold-22 {
+@mixin textSemibold-26 {
   @include basic-text();
-  font-size: 22px;
+  font-size: 26px;
   font-weight: $font-weight-semi-bold;
 }
 

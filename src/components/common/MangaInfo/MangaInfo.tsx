@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+/* eslint-disable array-callback-return */
+import React from 'react';
 
 import styles from './MangaInfo.module.scss';
 import { MangaInfoProps } from './MangaInfo.props';
 
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
-  const [increaseDesc, setincreaseDesc] = useState(false);
-
-  const showDesc = () => setincreaseDesc(!increaseDesc);
+  const filteredDesc = mangaData?.attributes.description.en.replace(
+    /(?:https?|ftp):\/\/[\n\S]+/g,
+    ''
+  );
 
   const title =
     mangaData.attributes.title.en ||
@@ -20,7 +22,7 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
       <div className={styles.summary_image}>
         <img
           className={styles.image}
-          src={`https://uploads.mangadex.org/covers/${mangaData.id}/${coverFile}.512.jpg`}
+          src={`https://uploads.mangadex.org/covers/${mangaData.id}/${coverFile}.256.jpg`}
           alt=""
         />
       </div>
@@ -29,14 +31,6 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
           <div className={styles.titles}>
             {<h2 className={styles.title_main}>{title}</h2>}
             <span className={styles.status}>[{mangaData?.attributes.status}]</span>
-          </div>
-
-          <div
-            onClick={showDesc}
-            className={increaseDesc ? styles.description_full : styles.description_hide}
-          >
-            <h3 className={styles.synopsis_title}>Synopsis of {title} </h3>
-            {mangaData?.attributes.description.en || ' No Description here'}
           </div>
           <div className={styles.post_status}>
             <h3>Info</h3>
@@ -60,6 +54,10 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
               })}
             </div>
           </div>
+        </div>
+        <div className={styles.description_full}>
+          <h3 className={styles.synopsis_title}>Synopsis of {title} </h3>
+          {filteredDesc || ' No Description here'}
         </div>
       </div>
     </div>

@@ -5,5 +5,5 @@ export interface ButtonProps {
   style: 'unfilled' | 'filled' | 'outline';
   label: string;
   icon?: ReactNode;
-  isDisabled?: boolean;
+  disabled?: boolean;
 }

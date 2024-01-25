@@ -42,24 +42,13 @@
   flex-direction: row;
 
   .title_main {
-    @include textSemibold-22();
+    @include textSemibold-26();
     margin-right: 10px;
   }
 
   .status {
     color: $sub-gray;
   }
-}
-
-.description_hide {
-  cursor: pointer;
-  height: 64px;
-  margin-top: 15px;
-  overflow: hidden;
-  transition-duration: 500ms;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
 }
 
 .description_full {

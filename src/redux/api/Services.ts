@@ -23,7 +23,7 @@ export const mangaApi = createApi({
     }),
     getSeachValue: builder.query<MangaObject, string>({
       query: (searchValue) =>
-        `https://api.mangadex.org/manga?title=${searchValue}&limit=20&includes[]=cover_art&excludedTags%5B%5D=5920b825-4181-4a17-beeb-9918b0ff7a30&excludedTagsMode=AND&contentRating%5B%5D=safe&contentRating[]=safe`,
+        `https://api.mangadex.org/manga?title=${searchValue}&limit=40&excludedTags%5B%5D=5920b825-4181-4a17-beeb-9918b0ff7a30&excludedTagsMode=AND&contentRating%5B%5D=safe&contentRating[]=safe`,
     }),
   }),
 });

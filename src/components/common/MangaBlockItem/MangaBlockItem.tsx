@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './MangaBlockItem.module.scss';
 import { ItemBlock } from './MangaBlockItem.props';
 import { useGetCoverQuery } from '../../../redux/api/Services';
-
+import luffypng from '../../../assets/img/luffypng.png';
 export const MangaBlockItem = ({
   id,
   attributes,
@@ -12,7 +12,7 @@ export const MangaBlockItem = ({
   // contentRating,
   mangaData,
 }: ItemBlock) => {
-  const { data: cover, isSuccess, isLoading } = useGetCoverQuery(coverId);
+  const { data: cover, isSuccess, isFetching } = useGetCoverQuery(coverId);
 
   const CoverImage = [cover?.data.attributes.fileName];
   const titles =
@@ -23,7 +23,13 @@ export const MangaBlockItem = ({
     attributes.title.ko;
   return (
     <div>
-      {isLoading && <h2>...Loading</h2>}
+      {isFetching && (
+        <div className={styles.item}>
+          <div className={styles.image_block}>
+            <img className={styles.image} src={luffypng} alt="" />
+          </div>
+        </div>
+      )}
       {isSuccess && (
         <Link to={`/manga/${id}`} state={[mangaData, CoverImage]}>
           <div className={styles.item}>

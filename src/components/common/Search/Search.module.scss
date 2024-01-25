@@ -1,0 +1,25 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins/utils.scss';
+@import '../../../scss/mixins/text.scss';
+@import '../../../scss/mixins/reset.scss';
+
+.data_container {
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+  margin-top: 0.5rem;
+  max-width: 220px;
+  color: #ffffff;
+
+  @media (min-width: 640px) {
+    width: 75%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.container_search {
+  display: flex;
+}
