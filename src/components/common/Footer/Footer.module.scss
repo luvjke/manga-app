@@ -1,0 +1,9 @@
+@import '../../../scss/mixins/text.scss';
+@import '../../../scss/variables.scss';
+@import '../../../scss//mixins/reset.scss';
+
+.footer {
+  background-color: $black-theme;
+  max-width: 100%;
+  border-top: $footer-border;
+}

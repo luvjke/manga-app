@@ -6,7 +6,6 @@ import { MangaData } from '../../redux/api/types/manga';
 import { ErrorComponent } from '../../components/common/ErrorComponent';
 import { MangaInfo } from '../../components/common/MangaInfo';
 import { ChapterList } from '../../components/common/ChapterList';
-import { Header } from '../../components/common/Header';
 
 export const MangaPage = () => {
   const location = useLocation();
@@ -17,7 +16,6 @@ export const MangaPage = () => {
     <div className={styles.wrapper}>
       {mangaData && coverFile ? (
         <div className={styles.container}>
-          <Header />
           <MangaInfo mangaData={mangaData} coverFile={coverFile} />
           <ChapterList id={mangaData.id} />
         </div>

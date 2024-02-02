@@ -2,7 +2,6 @@ import React from 'react';
 // import { useParams } from 'react-router-dom';
 
 import styles from './Home.module.scss';
-import { Header } from '../../components/common/Header';
 import { MangaBlock } from '../../components/common/MangaBlock';
 import { useGetMangaQuery } from '../../redux/api/Services';
 import { ErrorComponent } from '../../components/common/ErrorComponent';
@@ -51,7 +50,6 @@ export const Home = () => {
   }
   return (
     <main>
-      <Header />
       <div className={styles.layout}>
         {ObjectData?.map((props, index) => <MangaBlock {...props} key={index} />)}
       </div>

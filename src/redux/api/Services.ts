@@ -10,7 +10,7 @@ export const mangaApi = createApi({
   endpoints: (builder) => ({
     getManga: builder.query<MangaObject, string>({
       query: (listOrder: string | undefined) =>
-        `manga?order[${listOrder}]=desc&limit=12&includes[]=cover_art&excludedTags%5B%5D=5920b825-4181-4a17-beeb-9918b0ff7a30&excludedTagsMode=AND&contentRating%5B%5D=safe&contentRating[]=safe`,
+        `manga?order[${listOrder}]=desc&limit=20&includes[]=cover_art&excludedTags%5B%5D=5920b825-4181-4a17-beeb-9918b0ff7a30&excludedTagsMode=AND&contentRating%5B%5D=safe&contentRating[]=safe`,
     }),
     getCover: builder.query<CoverObject, string>({
       query: (id) => `cover/${id}`,

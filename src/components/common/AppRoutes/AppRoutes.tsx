@@ -7,10 +7,13 @@ import { MangaPage } from '../../../pages/MangaPage';
 import { ErrorComponent } from '../ErrorComponent';
 import { ChapterPage } from '../../../pages/ChapterPage';
 import { SearchPage } from '../../../pages/SearchPage';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
 
 export const AppRouter = () => {
   return (
     <>
+      <Header />
       <Routes>
         <Route path={RoutesMap.MAIN} element={<Home />} />
         <Route path="*" element={<ErrorComponent />} />
@@ -18,6 +21,7 @@ export const AppRouter = () => {
         <Route path={RoutesMap.CHAPTER} element={<ChapterPage />} />
         <Route path={RoutesMap.SEARCH} element={<SearchPage />} />
       </Routes>
+      <Footer />
     </>
   );
 };

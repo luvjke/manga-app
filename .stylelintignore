@@ -5,3 +5,8 @@
 *.md
 *.svg
 /node_modules
+node_modules
+bin
+obj
+*.js
+*.map

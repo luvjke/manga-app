@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import styles from './SearchPage.module.scss';
 import { useGetSeachValueQuery } from '../../redux/api/Services';
 import { MangaBlock } from '../../components/common/MangaBlock';
-import { Header } from '../../components/common/Header';
 
 export const SearchPage = () => {
   const location = useLocation();
@@ -18,7 +17,6 @@ export const SearchPage = () => {
   ];
   return (
     <main>
-      <Header />
       <div className={styles.layout}>
         {ObjectData?.map((props, index) => <MangaBlock {...props} key={index} />)}
       </div>

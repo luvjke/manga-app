@@ -7,7 +7,7 @@ import { MangaBlockItem } from '../MangaBlockItem';
 export const MangaBlock = ({ items }: MangaCardProps) => {
   console.log(items);
   return (
-    <div className={styles.container}>
+    <ul className={styles.container}>
       {items?.map((mangaData) => (
         <MangaBlockItem
           key={mangaData.id}
@@ -19,6 +19,6 @@ export const MangaBlock = ({ items }: MangaCardProps) => {
           mangaData={mangaData}
         />
       ))}
-    </div>
+    </ul>
   );
 };

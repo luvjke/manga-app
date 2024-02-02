@@ -22,7 +22,7 @@ export const MangaBlockItem = ({
     attributes.title.ru ||
     attributes.title.ko;
   return (
-    <div>
+    <li>
       {isFetching && (
         <div className={styles.item}>
           <div className={styles.image_block}>
@@ -47,6 +47,6 @@ export const MangaBlockItem = ({
           </div>
         </Link>
       )}
-    </div>
+    </li>
   );
 };
