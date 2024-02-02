@@ -17,6 +17,12 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
     mangaData?.attributes.title.ru ||
     mangaData?.attributes.title.ko;
 
+  const genres = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'genre');
+  const themes = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'theme');
+  const formats = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'format');
+  console.log(genres);
+  console.log(themes);
+  console.log(formats);
   return (
     <div className={styles.container}>
       <div className={styles.summary_image}>
@@ -36,15 +42,41 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
             <h3>Info</h3>
             <p className={styles.post_span}>
               <span>release {mangaData?.attributes.year || '?'}</span>
-              <span>genre {mangaData?.attributes.publicationDemographic || '?'}</span>
+              <span>demographic {mangaData?.attributes.publicationDemographic || '?'}</span>
             </p>
             <p className={styles.post_span}></p>
           </div>
           <div className={styles.post_category}>
-            <h3>Category</h3>
-            <div className={styles.post_tags}>
-              {mangaData.attributes.tags.map((tag) => {
-                if (tag.attributes.group === 'genre') {
+            {/* <h3>Format</h3>
+            <div className={styles.post_genre}>
+              {formats.map((tag) => {
+                if (formats.length > 0) {
+                  return (
+                    <p key={tag.id} className={styles.tag}>
+                      {tag.attributes.name.en}
+                    </p>
+                  );
+                }
+              })}
+            </div>
+            <h3>Theme</h3>
+            <div className={styles.post_genre}>
+              {themes.map((tag) => {
+                if (themes.length > 0) {
+                  return (
+                    <p key={tag.id} className={styles.tag}>
+                      {tag.attributes.name.en}
+                    </p>
+                  );
+                } else {
+                  return <p>?</p>;
+                }
+              })}
+            </div> */}
+            <h3>Genre</h3>
+            <div className={styles.post_genre}>
+              {genres.map((tag) => {
+                if (genres.length > 0) {
                   return (
                     <p key={tag.id} className={styles.tag}>
                       {tag.attributes.name.en}

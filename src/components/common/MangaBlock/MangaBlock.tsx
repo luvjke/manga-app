@@ -13,7 +13,6 @@ export const MangaBlock = ({ items }: MangaCardProps) => {
           key={mangaData.id}
           id={mangaData.id}
           attributes={mangaData.attributes}
-          // @ts-ignore
           coverId={mangaData.relationships.find(({ type }) => type === 'cover_art')?.id || ''}
           contentRating={mangaData.attributes?.contentRating}
           mangaData={mangaData}

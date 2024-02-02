@@ -25,22 +25,39 @@ export interface MangaData {
     contentRating: string;
     year: number;
     tags: Tag[];
-    status: string;
+    status: 'completed' | 'ongoing' | 'cancelled' | 'hiatus';
     altTitles: AltTitle[];
-    publicationDemographic: string;
+    publicationDemographic: 'shounen' | 'shoujo' | 'josei' | 'seinen';
   };
   relationships: Relationship[];
 }
 interface Relationship {
-  attributes: any;
+  attributes?: any;
   id: string;
   type: string;
+  related?:
+    | 'monochrome'
+    | 'main_story'
+    | 'adapted_from'
+    | 'based_on'
+    | 'prequel'
+    | 'side_story'
+    | 'doujinshi'
+    | 'same_franchise'
+    | 'shared_universe'
+    | 'sequel'
+    | 'spin_off'
+    | 'alternate_story'
+    | 'alternate_version'
+    | 'preserialization'
+    | 'colored'
+    | 'serialization';
 }
 interface Tag {
   id: string;
   type: string;
   attributes: {
-    group: string;
+    group: 'content' | 'format' | 'genre' | 'theme';
     name: {
       en: string;
     };
