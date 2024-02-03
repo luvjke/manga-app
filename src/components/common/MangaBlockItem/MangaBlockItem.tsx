@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './MangaBlockItem.module.scss';
 import { ItemBlock } from './MangaBlockItem.props';
-import { useGetCoverQuery } from '../../../redux/api/Services';
+import { useGetCoverQuery, useGetStatisticsQuery } from '../../../redux/api/Services';
 import luffypng from '../../../assets/img/luffypng.png';
 export const MangaBlockItem = ({
   id,
@@ -13,8 +13,11 @@ export const MangaBlockItem = ({
   mangaData,
 }: ItemBlock) => {
   const { data: cover, isSuccess, isFetching } = useGetCoverQuery(coverId);
+  // const { data: statistic } = useGetStatisticsQuery(id);
 
-  const CoverImage = [cover?.data.attributes.fileName];
+  const CoverImage = cover?.data.attributes.fileName;
+  // const AverageScore =[statistic?.rating.average;
+
   const titles =
     attributes.title.en ||
     attributes.title['ja-ro'] ||

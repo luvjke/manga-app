@@ -4,6 +4,7 @@ import { MangaObject } from './types/manga';
 import { CoverObject } from './types/cover';
 import { ChapterObject, SoloChapterObject } from './types/chapter';
 import { ApiTags } from '../../common/constans';
+import { StatisticObject } from './types/statistic';
 
 export const mangaApi = createApi({
   reducerPath: 'mangaApi',
@@ -24,7 +25,10 @@ export const mangaApi = createApi({
     }),
     getSeachValue: builder.query<MangaObject, string>({
       query: (searchValue) =>
-        `https://api.mangadex.org/manga?title=${searchValue}&limit=40${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}`,
+        `manga?title=${searchValue}&limit=40${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}`,
+    }),
+    getStatistics: builder.query<StatisticObject, string>({
+      query: (id) => `/statistics/manga/${id}`,
     }),
   }),
 });
@@ -34,4 +38,5 @@ export const {
   useGetChaptersQuery,
   useGetChapterQuery,
   useGetSeachValueQuery,
+  useGetStatisticsQuery,
 } = mangaApi;

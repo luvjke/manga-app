@@ -20,9 +20,7 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
   const genres = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'genre');
   const themes = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'theme');
   const formats = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'format');
-  console.log(genres);
-  console.log(themes);
-  console.log(formats);
+
   return (
     <div className={styles.container}>
       <div className={styles.summary_image}>
@@ -47,7 +45,7 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
             <p className={styles.post_span}></p>
           </div>
           <div className={styles.post_category}>
-            {/* <h3>Format</h3>
+            <h3>Format</h3>
             <div className={styles.post_genre}>
               {formats.map((tag) => {
                 if (formats.length > 0) {
@@ -72,7 +70,7 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
                   return <p>?</p>;
                 }
               })}
-            </div> */}
+            </div>
             <h3>Genre</h3>
             <div className={styles.post_genre}>
               {genres.map((tag) => {
