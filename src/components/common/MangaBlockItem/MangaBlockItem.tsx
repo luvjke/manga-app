@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './MangaBlockItem.module.scss';
 import { ItemBlock } from './MangaBlockItem.props';
-import { useGetCoverQuery, useGetStatisticsQuery } from '../../../redux/api/Services';
+import { useGetCoverQuery } from '../../../redux/api/Services';
 import luffypng from '../../../assets/img/luffypng.png';
 export const MangaBlockItem = ({
   id,
@@ -15,8 +15,8 @@ export const MangaBlockItem = ({
   const { data: cover, isSuccess, isFetching } = useGetCoverQuery(coverId);
   // const { data: statistic } = useGetStatisticsQuery(id);
 
-  const CoverImage = cover?.data.attributes.fileName;
-  // const AverageScore =[statistic?.rating.average;
+  const COVER_IMAGE = cover?.data.attributes.fileName;
+  // const AVERAGE_SCORE = statistic?.statistics[`${id}`].rating.average.toFixed(1);
 
   const titles =
     attributes.title.en ||
@@ -34,17 +34,18 @@ export const MangaBlockItem = ({
         </div>
       )}
       {isSuccess && (
-        <Link to={`/manga/${id}`} state={[mangaData, CoverImage]}>
+        <Link to={`/manga/${id}`} state={[mangaData, COVER_IMAGE]}>
           <div className={styles.item}>
             <div className={styles.image_block}>
               <img
                 className={styles.image}
-                src={`https://uploads.mangadex.org/covers/${id}/${CoverImage}.256.jpg`}
+                src={`https://uploads.mangadex.org/covers/${id}/${COVER_IMAGE}.256.jpg`}
                 alt=""
               />
             </div>
             <div className={styles.infocontainer}>
-              {<h2 className={styles.titlename}>{titles}</h2>}
+              {/* <p className={styles.average}>{AVERAGE_SCORE}</p> */}
+              <h2 className={styles.titlename}>{titles}</h2>
               {/* <p className={styles.raiting}>{contentRating}</p> */}
             </div>
           </div>

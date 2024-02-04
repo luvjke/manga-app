@@ -12,7 +12,7 @@ import { IconButton } from '../../ui/IconButton';
 
 export const Search = () => {
   const [searchValue, setValue] = useState(' ');
-
+  console.log(searchValue);
   // const { data } = useGetSeachValueQuery(searchValue);
   const delay = 400;
 

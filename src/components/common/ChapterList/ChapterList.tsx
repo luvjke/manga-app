@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import styles from './ChapterList.module.scss';
 import { ChapterInfoProps } from './ChapterList.props';
 import { useGetChaptersQuery } from '../../../redux/api/Services';
-import { IconButton } from '../../ui/IconButton';
-import { ReactComponent as IconSort } from '../../../assets/icons/sort.svg';
+// import { IconButton } from '../../ui/IconButton';
+// import { ReactComponent as IconSort } from '../../../assets/icons/sort.svg';
 // import { ChapterData } from '../../../redux/api/types/chapter';
 
 export const ChapterList = ({ id }: ChapterInfoProps) => {
@@ -16,14 +16,13 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
   // dataChapters?.forEach((val) => myClonedArray.push(Object.assign({}, val)));
   let myClonedArray = dataChapters?.map((x) => Object.assign({}, x));
 
-  const handleClickSort = () => {
-    return (myClonedArray = myClonedArray?.sort((a, b) => {
-      return parseInt(a.attributes.chapter) - parseInt(b.attributes.chapter);
-    }));
-  };
+  // const handleClickSort = () => {
+  //   myClonedArray?.sort((a, b) => {
+  //     return parseInt(a.attributes.chapter) - parseInt(b.attributes.chapter);
+  //   });
+  // };
 
   const dateFilterFunc = (string: string) => {
-    // eslint-disable-next-line no-useless-escape
     return string.replace(/\T.*/, '').split('-').reverse().join('.');
   };
   console.log(myClonedArray);
@@ -36,7 +35,7 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
           <div className={styles.container}>
             <div className={styles.container_header}>
               <h2 className={styles.spec}> LATEST MANGA RELEASES </h2>
-              <IconButton onClick={() => handleClickSort()} icon={<IconSort />} />
+              {/* <IconButton onClick={() => handleClickSort()} icon={<IconSort />} /> */}
             </div>
             <div className={styles.chapters}>
               {!dataChapters?.length ? (

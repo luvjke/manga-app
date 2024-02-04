@@ -13,7 +13,7 @@
     width: 186px;
   }
   .image {
-    height: 280px; 
+    height: 280px;
     width: 186px;
 
     &:hover {
@@ -28,9 +28,12 @@
   height: 41px;
   width: 186px;
 
+  .average {
+    color: $sub-gray;
+  }
   .titlename {
     overflow: hidden;
-    text-align: center;
+    // text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
