@@ -23,6 +23,7 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
   // };
 
   const dateFilterFunc = (string: string) => {
+    // eslint-disable-next-line no-useless-escape
     return string.replace(/\T.*/, '').split('-').reverse().join('.');
   };
   console.log(myClonedArray);
