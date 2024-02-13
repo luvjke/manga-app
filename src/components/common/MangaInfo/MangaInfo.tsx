@@ -5,10 +5,7 @@ import styles from './MangaInfo.module.scss';
 import { MangaInfoProps } from './MangaInfo.props';
 
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
-  const filteredDesc = mangaData?.attributes.description.en.replace(
-    /(?:https?|ftp):\/\/[\n\S]+/g,
-    ''
-  );
+  const filteredDesc = mangaData?.attributes.description.en.replace(/---[\s\S]*/, '');
 
   const title =
     mangaData.attributes.title.en ||
@@ -21,6 +18,42 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
   const themes = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'theme');
   const formats = mangaData.attributes.tags.filter((tag) => tag.attributes.group === 'format');
 
+  const manga_formats =
+    formats.length > 0 ? (
+      formats.map((tag) => {
+        return (
+          <p key={tag.id} className={styles.tag}>
+            {tag.attributes.name.en}
+          </p>
+        );
+      })
+    ) : (
+      <div>?</div>
+    );
+  const manga_genres =
+    genres.length > 0 ? (
+      genres.map((tag) => {
+        return (
+          <p key={tag.id} className={styles.tag}>
+            {tag.attributes.name.en}
+          </p>
+        );
+      })
+    ) : (
+      <div>?</div>
+    );
+  const manga_themes =
+    themes.length > 0 ? (
+      themes.map((tag) => {
+        return (
+          <p key={tag.id} className={styles.tag}>
+            {tag.attributes.name.en}
+          </p>
+        );
+      })
+    ) : (
+      <div>?</div>
+    );
   return (
     <div className={styles.container}>
       <div className={styles.summary_image}>
@@ -46,43 +79,11 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
           </div>
           <div className={styles.post_category}>
             <h3>Format</h3>
-            <div className={styles.post_genre}>
-              {formats.map((tag) => {
-                if (formats.length > 0) {
-                  return (
-                    <p key={tag.id} className={styles.tag}>
-                      {tag.attributes.name.en}
-                    </p>
-                  );
-                }
-              })}
-            </div>
+            <div className={styles.post_genre}>{manga_formats}</div>
             <h3>Theme</h3>
-            <div className={styles.post_genre}>
-              {themes.map((tag) => {
-                if (themes.length > 0) {
-                  return (
-                    <p key={tag.id} className={styles.tag}>
-                      {tag.attributes.name.en}
-                    </p>
-                  );
-                } else {
-                  return <p>?</p>;
-                }
-              })}
-            </div>
+            <div className={styles.post_genre}>{manga_themes}</div>
             <h3>Genre</h3>
-            <div className={styles.post_genre}>
-              {genres.map((tag) => {
-                if (genres.length > 0) {
-                  return (
-                    <p key={tag.id} className={styles.tag}>
-                      {tag.attributes.name.en}
-                    </p>
-                  );
-                }
-              })}
-            </div>
+            <div className={styles.post_genre}>{manga_genres}</div>
           </div>
         </div>
         <div className={styles.description_full}>

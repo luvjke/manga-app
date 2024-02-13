@@ -14,7 +14,7 @@ export const ChapterImages = (img: Images) => {
       <div className={styles.button_container}>
         {currentPage > 0 && (
           <button onClick={() => setCurrentPage(currentPage - 1)} className={styles.button}>
-            Back
+            BACK
           </button>
         )}
       </div>
@@ -25,19 +25,13 @@ export const ChapterImages = (img: Images) => {
             src={imageUrl}
             alt={`Page ${currentPage + 1}`}
             key={currentPage}
-            // width={512}
-            // height={1080}
-            // style={{
-            //   width: 'auto',
-            //   height: '100%',
-            // }}
           />
         )}
       </div>
       <div className={styles.button_container}>
         {totalPages && currentPage < totalPages - 1 && (
           <button onClick={() => setCurrentPage(currentPage + 1)} className={styles.button}>
-            Next
+            NEXT
           </button>
         )}
       </div>

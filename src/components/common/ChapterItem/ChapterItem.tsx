@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './ChapterItem.module.scss';
 import { ChapterItemProps } from './ChapterItem.props';
 import { useGetChapterQuery } from '../../../redux/api/Services';
-import { ChapterImages } from './ChapterImages';
+import { ChapterImages } from './components/ChapterImages';
 
 export const ChapterItem = ({ chapterId }: ChapterItemProps) => {
   const { data: dataObject } = useGetChapterQuery(chapterId);
