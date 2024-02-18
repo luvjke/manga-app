@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import styles from './Search.module.scss';
 import { Input } from '../../ui/Input';
-import { ReactComponent as SearchIcon } from '../../../assets/icons/searchnormal1.svg';
-import { ReactComponent as ButtonIcon } from '../../../assets/icons/shuriken.svg';
-import { IconButton } from '../../ui/IconButton';
+import { Button } from '../../ui/Button';
+// import { ReactComponent as ButtonIcon } from '../../../assets/icons/shuriken.svg';
+// import { IconButton } from '../../ui/IconButton';
 
 // import { useGetSeachValueQuery } from '../../../redux/api/Services';
 
@@ -33,9 +33,9 @@ export const Search = () => {
 
   return (
     <div className={styles.container_search}>
-      <Input placeholder="Search " onChange={onChangeSearch} icon={<SearchIcon />} />
+      <Input placeholder="Search " onChange={onChangeSearch} style={'custom'} />
       <Link to={`/search/${searchValue}`} state={[searchValue]}>
-        <IconButton icon={<ButtonIcon />}></IconButton>
+        <Button style={'custom'} label={'Search'} />
       </Link>
       {/* {isFetching ? (
         <p className={styles.loading}>Loading</p>

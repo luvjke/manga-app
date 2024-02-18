@@ -18,3 +18,45 @@
   @include textMedium-40();
   letter-spacing: 2px;
 }
+
+.search_main {
+  opacity: 1;
+  visibility: visible;
+  height: 96px;
+  background-color: $black-theme;
+  transform-origin: top;
+  transition:
+    height 0.2s,
+    visibility 0.2s,
+    opacity 0.2s,
+    transform 0s 0.2s;
+  animation-duration: 0.2s;
+  li {
+    position: relative;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+}
+
+.search_close {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transform-origin: top;
+  transition:
+    height 0.2s,
+    visibility 0.2s,
+    opacity 0.2s,
+    transform 0s 0.2s;
+  animation-duration: 0.2s;
+}
+.post_search {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 50px;
+  width: 100%;
+}

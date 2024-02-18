@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface IconButtonProps {
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   icon?: ReactNode;
   disabled?: boolean;
 }

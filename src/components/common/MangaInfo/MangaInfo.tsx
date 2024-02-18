@@ -5,7 +5,7 @@ import styles from './MangaInfo.module.scss';
 import { MangaInfoProps } from './MangaInfo.props';
 
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
-  const filteredDesc = mangaData?.attributes.description.en.replace(/---[\s\S]*/, '');
+  const filteredDesc = mangaData?.attributes.description.en.replace(/---[\s\S]*|(\*\*)[\s\S]*/, '');
 
   const title =
     mangaData.attributes.title.en ||

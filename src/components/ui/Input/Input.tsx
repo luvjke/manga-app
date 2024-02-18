@@ -4,17 +4,20 @@ import classNames from 'classnames';
 import { InputProps } from './Input.props';
 import styles from './Input.module.scss';
 
-export const Input = ({ onChange, placeholder, icon, isDisabled }: InputProps) => {
-  const InputClassNames = classNames(styles.input, icon && styles.icon_input);
+export const Input = ({ onChange, placeholder, icon, style, isDisabled }: InputProps) => {
+  const InputClassNames = classNames(
+    styles.input,
+    style && styles[style],
+    icon && styles.icon_button
+  );
   return (
-    <div className={styles.container}>
-      <input
-        className={InputClassNames}
-        placeholder={placeholder}
-        onChange={onChange}
-        disabled={isDisabled}
-      ></input>
+    <input
+      className={InputClassNames}
+      placeholder={placeholder}
+      onChange={onChange}
+      disabled={isDisabled}
+    >
       {icon && <span className={styles.icon}>{icon}</span>}
-    </div>
+    </input>
   );
 };

@@ -9,9 +9,6 @@
   @include textRegular-16();
   background-color: rgb(67, 66, 66);
   color: rgb(255, 255, 255);
-  height: max-content;
-  padding: 8px 12px;
-  width: 220px;
 
   &:disabled {
     pointer-events: none;
@@ -19,7 +16,9 @@
   &:focus {
     background-color: #232323;
   }
-
+  &:hover {
+    background-color: #232323;
+  }
   &::placeholder {
   }
 }
@@ -33,7 +32,10 @@
   padding-left: 35px;
 }
 
-.container {
-  position: relative;
-  width: max-content;
+.custom {
+  padding: 13px 115px 13px 15px;
+  width: 100%;
+  border: $search-border;
+  border-radius: 0;
+  transition: background-color 200ms ease;
 }
