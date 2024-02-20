@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import { ButtonProps } from './Button.props';
 import styles from './Button.module.scss';
 
-export const Button = ({ onClick, disabled, label, icon, style }: ButtonProps) => {
+export const Button = ({ onClick, disabled, label, icon, version }: ButtonProps) => {
   const buttonClassNames = classNames(
     styles.button,
-    style && styles[style],
+    version && styles[version],
     icon && styles.icon_button
   );
   return (

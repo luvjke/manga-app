@@ -14,6 +14,7 @@ export const Search = () => {
   const [searchValue, setValue] = useState(' ');
   console.log(searchValue);
   // const { data } = useGetSeachValueQuery(searchValue);
+
   const delay = 400;
 
   const onChangeValue = (text: string) => {
@@ -33,9 +34,9 @@ export const Search = () => {
 
   return (
     <div className={styles.container_search}>
-      <Input placeholder="Search " onChange={onChangeSearch} style={'custom'} />
+      <Input placeholder="Search " onChange={onChangeSearch} version={'custom'} />
       <Link to={`/search/${searchValue}`} state={[searchValue]}>
-        <Button style={'custom'} label={'Search'} />
+        <Button version={'custom'} label={'Search'} />
       </Link>
       {/* {isFetching ? (
         <p className={styles.loading}>Loading</p>

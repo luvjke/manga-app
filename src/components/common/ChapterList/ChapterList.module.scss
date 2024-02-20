@@ -28,7 +28,9 @@
   .chapter {
     display: flex;
     justify-content: space-between;
-
+    &:hover {
+      color: #995454;
+    }
     .date {
       color: $sub-gray;
     }

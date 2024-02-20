@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import { InputProps } from './Input.props';
 import styles from './Input.module.scss';
 
-export const Input = ({ onChange, placeholder, icon, style, isDisabled }: InputProps) => {
+export const Input = ({ onChange, placeholder, icon, version, isDisabled }: InputProps) => {
   const InputClassNames = classNames(
     styles.input,
-    style && styles[style],
+    version && styles[version],
     icon && styles.icon_button
   );
   return (

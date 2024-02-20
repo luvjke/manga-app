@@ -1,32 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './ChapterList.module.scss';
 import { ChapterInfoProps } from './ChapterList.props';
 import { useGetChaptersQuery } from '../../../redux/api/Services';
-// import { IconButton } from '../../ui/IconButton';
-// import { ReactComponent as IconSort } from '../../../assets/icons/sort.svg';
+import { ChapterData } from '../../../redux/api/types/chapter';
+import { IconButton } from '../../ui/IconButton';
+import { ReactComponent as IconSort } from '../../../assets/icons/sort.svg';
 // import { ChapterData } from '../../../redux/api/types/chapter';
 
 export const ChapterList = ({ id }: ChapterInfoProps) => {
   const { data: ChaptersArray, isSuccess, isFetching } = useGetChaptersQuery(id);
 
   let dataChapters = ChaptersArray?.data;
-  // let myClonedArray: ChapterData[] = [];
+
   // dataChapters?.forEach((val) => myClonedArray.push(Object.assign({}, val)));
-  let myClonedArray = dataChapters?.map((x) => Object.assign({}, x));
 
-  // const handleClickSort = () => {
-  //   myClonedArray?.sort((a, b) => {
-  //     return parseInt(a.attributes.chapter) - parseInt(b.attributes.chapter);
-  //   });
-  // };
+  const [clonedArray, setClonedArray] = React.useState<ChapterData[] | undefined>(undefined);
+  const [ascending, setAscending] = React.useState(false);
 
+  useEffect(() => {
+    if (isSuccess) {
+      let myClonedArray = ChaptersArray?.data?.map((x) => ({ ...x }));
+      setClonedArray(myClonedArray);
+    }
+  }, [isSuccess, ChaptersArray]);
+
+  const handleClickSort = () => {
+    setAscending((prev) => !prev);
+    if (clonedArray) {
+      const sortedArray = [...clonedArray];
+      sortedArray.sort((a, b) => {
+        const chapterA = parseFloat(a.attributes.chapter);
+        const chapterB = parseFloat(b.attributes.chapter);
+        return ascending ? chapterA - chapterB : chapterB - chapterA;
+      });
+      setClonedArray(sortedArray);
+    }
+  };
   const dateFilterFunc = (string: string) => {
-    // eslint-disable-next-line no-useless-escape
     return string.replace(/\T.*/, '').split('-').reverse().join('.');
   };
-  console.log(myClonedArray);
+
   return (
     <>
       {isFetching ? (
@@ -36,32 +51,35 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
           <div className={styles.container}>
             <div className={styles.container_header}>
               <h2 className={styles.spec}> LATEST MANGA RELEASES </h2>
-              {/* <IconButton onClick={() => handleClickSort()} icon={<IconSort />} /> */}
+              <IconButton
+                onClick={() => handleClickSort()}
+                icon={<IconSort />}
+                version={'custom'}
+              />
             </div>
-            <div className={styles.chapters}>
+            <ul className={styles.chapters}>
               {!dataChapters?.length ? (
                 <p className={styles.error}>No translated charapters on ENGLISH LANGUAGE</p>
               ) : (
-                myClonedArray?.map((dataChapters) => {
+                clonedArray?.map((dataChapters) => {
                   return (
-                    <Link
-                      key={dataChapters.id}
-                      to={`../manga/chapter/${dataChapters.id}`}
-                      state={[dataChapters.id]}
-                    >
-                      <div className={styles.chapter}>
-                        <p className={styles.title}>
-                          Chapter {dataChapters.attributes.chapter} {dataChapters.attributes.title}
-                        </p>
-                        <p className={styles.date}>
-                          {dateFilterFunc(dataChapters.attributes.publishAt)}
-                        </p>
-                      </div>
-                    </Link>
+                    <li key={dataChapters.id}>
+                      <Link to={`../manga/chapter/${dataChapters.id}`} state={[dataChapters.id]}>
+                        <div className={styles.chapter}>
+                          <p className={styles.title}>
+                            Chapter {dataChapters.attributes.chapter}{' '}
+                            {dataChapters.attributes.title}
+                          </p>
+                          <p className={styles.date}>
+                            {dateFilterFunc(dataChapters.attributes.publishAt)}
+                          </p>
+                        </div>
+                      </Link>
+                    </li>
                   );
                 })
               )}
-            </div>
+            </ul>
           </div>
         )
       )}

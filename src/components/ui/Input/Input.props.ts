@@ -6,5 +6,5 @@ export interface InputProps {
   placeholder?: string;
   isDisabled?: boolean;
   icon?: ReactNode;
-  style: 'unfilled' | 'filled' | 'outline' | 'custom';
+  version: 'unfilled' | 'filled' | 'outline' | 'custom';
 }
