@@ -11,13 +11,6 @@ export const ChapterImages = (img: Images) => {
   const imageUrl = img.images[currentPage];
   return (
     <div className={styles.container}>
-      <div className={styles.button_container}>
-        {currentPage > 0 && (
-          <button onClick={() => setCurrentPage(currentPage - 1)} className={styles.button}>
-            BACK
-          </button>
-        )}
-      </div>
       <div className={styles.solo_image}>
         {imageUrl && (
           <img
@@ -29,10 +22,12 @@ export const ChapterImages = (img: Images) => {
         )}
       </div>
       <div className={styles.button_container}>
+        {currentPage > 0 && (
+          <div className={styles.button_item} onClick={() => setCurrentPage(currentPage - 1)}></div>
+        )}
+        <div></div>
         {totalPages && currentPage < totalPages - 1 && (
-          <button onClick={() => setCurrentPage(currentPage + 1)} className={styles.button}>
-            NEXT
-          </button>
+          <div className={styles.button_item} onClick={() => setCurrentPage(currentPage + 1)}></div>
         )}
       </div>
     </div>

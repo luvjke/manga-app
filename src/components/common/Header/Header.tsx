@@ -42,11 +42,9 @@ export const Header = () => {
             <form className={styles.post_search}>
               <div className={styles.container_search}>
                 <Input placeholder="Search " onChange={onChangeSearch} version={'custom'} />
-                {
-                  <Link to={`/search/${searchValue}`} state={[searchValue]}>
-                    <Button version={'custom'} label={'Search'} disabled={isButtonDisabled} />
-                  </Link>
-                }
+                <Link to={`/search/${searchValue}`} state={[searchValue]}>
+                  <Button version={'custom'} label={'Search'} disabled={isButtonDisabled} />
+                </Link>
               </div>
             </form>
           </li>

@@ -33,7 +33,7 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
       sortedArray.sort((a, b) => {
         const chapterA = parseFloat(a.attributes.chapter);
         const chapterB = parseFloat(b.attributes.chapter);
-        return ascending ? chapterA - chapterB : chapterB - chapterA;
+        return ascending ? chapterB - chapterA : chapterA - chapterB;
       });
       setClonedArray(sortedArray);
     }
