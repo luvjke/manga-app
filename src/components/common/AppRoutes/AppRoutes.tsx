@@ -8,6 +8,8 @@ import { ErrorComponent } from '../ErrorComponent';
 import { ChapterPage } from '../../../pages/ChapterPage';
 import { SearchPage } from '../../../pages/SearchPage';
 import { Header } from '../Header';
+import { FavoritesPages } from '../../../pages/FavoritesPages';
+
 // import { Footer } from '../Footer';
 
 export const AppRouter = () => {
@@ -20,6 +22,7 @@ export const AppRouter = () => {
         <Route path={RoutesMap.MANGA} element={<MangaPage />} />
         <Route path={RoutesMap.CHAPTER} element={<ChapterPage />} />
         <Route path={RoutesMap.SEARCH} element={<SearchPage />} />
+        <Route path={RoutesMap.FAVORITE} element={<FavoritesPages />} />
       </Routes>
       {/* <Footer /> */}
     </>

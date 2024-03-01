@@ -48,6 +48,7 @@ export const Home = () => {
   if (mangaError) {
     return <ErrorComponent />;
   }
+  console.log(ObjectData);
   return (
     <main>
       <div className={styles.layout}>

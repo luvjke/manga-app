@@ -3,6 +3,7 @@ export const RoutesMap = {
   MANGA: '/manga/:id',
   CHAPTER: '/manga/:id/:id',
   SEARCH: '/search/:searchValue',
+  FAVORITE: '/favorite',
 };
 
 export const ApiRoutes = {

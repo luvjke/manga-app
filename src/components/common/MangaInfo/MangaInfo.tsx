@@ -3,10 +3,36 @@ import React from 'react';
 
 import styles from './MangaInfo.module.scss';
 import { MangaInfoProps } from './MangaInfo.props';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import {
+  addFavouriteManga,
+  removeFavouriteManga,
+} from '../../../redux/favoriteSlice/favoriteSlice';
+import { favouriteMangaSelector } from '../../../redux/favoriteSlice/selectors';
 
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
   const filteredDesc = mangaData?.attributes.description.en.replace(/---[\s\S]*|(\*\*)[\s\S]*/, '');
+  const isFavorited = React.useRef(false);
+  const favoritedMangas = useAppSelector(favouriteMangaSelector);
+  const dispatch = useAppDispatch();
 
+  if (Array.isArray(favoritedMangas) && favoritedMangas.includes(mangaData)) {
+    isFavorited.current = true;
+  }
+
+  const handleAddFavorite = () => {
+    if (
+      Array.isArray(favoritedMangas) &&
+      favoritedMangas.map((data) => data.id).includes(mangaData.id)
+    ) {
+      dispatch(removeFavouriteManga(mangaData));
+      isFavorited.current = false;
+    } else {
+      dispatch(addFavouriteManga(mangaData));
+      isFavorited.current = true;
+    }
+  };
+  console.log(favoritedMangas);
   const title =
     mangaData.attributes.title.en ||
     mangaData?.attributes.title['ja-ro'] ||
@@ -68,6 +94,7 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
           <div className={styles.titles}>
             {<h2 className={styles.title_main}>{title}</h2>}
             <span className={styles.status}>[{mangaData?.attributes.status}]</span>
+            <button onClick={handleAddFavorite}>dsadhiuashjkd</button>
           </div>
           <div className={styles.post_status}>
             <h3>Info</h3>

@@ -62,6 +62,9 @@ export const Header = () => {
               version={'filled'}
             />
           </div>
+          <div>
+            <Link to={`/favorite`}>asjkdasdhaksjd</Link>
+          </div>
         </nav>
       </div>
     </header>
