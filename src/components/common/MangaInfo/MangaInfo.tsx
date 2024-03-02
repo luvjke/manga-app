@@ -13,6 +13,7 @@ import { favouriteMangaSelector } from '../../../redux/favoriteSlice/selectors';
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
   const filteredDesc = mangaData?.attributes.description.en.replace(/---[\s\S]*|(\*\*)[\s\S]*/, '');
   const isFavorited = React.useRef(false);
+
   const favoritedMangas = useAppSelector(favouriteMangaSelector);
   const dispatch = useAppDispatch();
 
@@ -32,6 +33,11 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
       isFavorited.current = true;
     }
   };
+  React.useEffect(() => {
+    const json = JSON.stringify(favoritedMangas);
+    localStorage.setItem('favorite', json);
+  }, [favoritedMangas]);
+
   console.log(favoritedMangas);
   const title =
     mangaData.attributes.title.en ||

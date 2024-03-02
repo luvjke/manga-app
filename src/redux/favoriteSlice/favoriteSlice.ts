@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { MangaData } from '../api/types/manga';
+import { getCartFromLS } from '../../common/utils';
 
 interface FavoriteManga {
   favouriteMangas: MangaData[];
 }
 
 const initialState: FavoriteManga = {
-  favouriteMangas: [],
+  favouriteMangas: getCartFromLS(),
 };
 const favoriteSlice = createSlice({
   name: 'manga',
