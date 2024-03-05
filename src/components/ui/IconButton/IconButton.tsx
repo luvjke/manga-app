@@ -1,17 +1,23 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import styles from './IconButton.module.scss';
 import { IconButtonProps } from './IconButton.props';
-export const IconButton = ({ icon, version, onClick }: IconButtonProps) => {
+export const IconButton = ({ icon, version, onClick, tag, href, state }: IconButtonProps) => {
   const buttonClassNames = classNames(
     styles.button,
     version && styles[version],
     icon && styles.icon_button
   );
-  return (
+
+  return tag === 'button' ? (
     <button className={buttonClassNames} onClick={onClick}>
       {icon && <span className={styles.seacrspan}>{icon}</span>}
     </button>
+  ) : (
+    <Link to={href ?? ''} className={buttonClassNames} state={state}>
+      {icon}
+    </Link>
   );
 };

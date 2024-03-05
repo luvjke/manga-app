@@ -5,6 +5,10 @@
 .header {
   background-color: #232323;
   max-width: 100%;
+  .right_container {
+    display: flex;
+    gap: 15px;
+  }
 }
 
 .header_nav {
@@ -53,13 +57,13 @@
     transform 0s 0.2s;
   animation-duration: 0.2s;
 }
+.container_search {
+  display: flex;
+}
 .post_search {
   max-width: 780px;
   margin: 0 auto;
   padding: 0 15px;
   height: 50px;
   width: 100%;
-}
-.container_search {
-  display: flex;
 }

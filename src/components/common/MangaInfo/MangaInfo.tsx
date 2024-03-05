@@ -8,6 +8,8 @@ import {
   addFavouriteManga,
   removeFavouriteManga,
 } from '../../../redux/favoriteSlice/favoriteSlice';
+import { ReactComponent as FilledStar } from '../../../assets/icons/FillStar.svg';
+import { ReactComponent as OutlineStar } from '../../../assets/icons/OutlineStar.svg';
 import { favouriteMangaSelector } from '../../../redux/favoriteSlice/selectors';
 
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
@@ -97,10 +99,18 @@ export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {
       </div>
       <div className={styles.summary_content}>
         <div className={styles.post_content}>
-          <div className={styles.titles}>
-            {<h2 className={styles.title_main}>{title}</h2>}
-            <span className={styles.status}>[{mangaData?.attributes.status}]</span>
-            <button onClick={handleAddFavorite}>dsadhiuashjkd</button>
+          <div className={styles.post_top_content}>
+            <div className={styles.titles}>
+              {<h2 className={styles.title_main}>{title}</h2>}
+              <span className={styles.status}>[{mangaData?.attributes.status}]</span>
+            </div>
+            <div className={styles.post_favorite}>
+              {favoritedMangas.map((data) => data.id).includes(mangaData.id) ? (
+                <FilledStar onClick={handleAddFavorite} />
+              ) : (
+                <OutlineStar onClick={handleAddFavorite} />
+              )}
+            </div>
           </div>
           <div className={styles.post_status}>
             <h3>Info</h3>

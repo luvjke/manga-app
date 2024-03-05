@@ -14,6 +14,7 @@ export const mangaApi = createApi({
       query: (listOrder: string | undefined) =>
         `manga?order[${listOrder}]=desc&limit=15&includes[]=cover_art${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}`,
     }),
+    // &offset=
     getCover: builder.query<CoverObject, string>({
       query: (id) => `cover/${id}`,
     }),
