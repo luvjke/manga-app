@@ -15,4 +15,5 @@ export interface ItemBlock {
   coverId: string;
   contentRating: string;
   mangaData: Object;
+  index?: number;
 }

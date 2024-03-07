@@ -5,11 +5,16 @@ import styles from './Home.module.scss';
 import { MangaBlock } from '../../components/common/MangaBlock';
 import { useGetMangaQuery } from '../../redux/api/Services';
 import { ErrorComponent } from '../../components/common/ErrorComponent';
+import { Footer } from '../../components/common/Footer';
+import { MangaData } from '../../redux/api/types/manga';
+import { Button } from '../../components/ui/Button';
 
 export const Home = () => {
   // const { orderType } = useParams();
+  const [mangaList, setMangaList] = React.useState<MangaData[]>([]);
+  const [offset, setOffset] = React.useState(0);
+  let orderType: string = 'latestUploadedChapter';
 
-  let currentPage: string = 'latestUploadedChapter';
   // switch (orderType) {
   //   case 'rating':
   //     currentPage = 'Top Rated';
@@ -24,23 +29,27 @@ export const Home = () => {
   //     currentPage = 'Latest Chapters';
   //     break;
   // }
+  const handleLoadMore = () => {
+    setOffset((prevOffset) => prevOffset + 15);
+  };
+
   const {
     data: MangaArray,
     isLoading: mangaLoading,
     isError: mangaError,
-  } = useGetMangaQuery(currentPage); //https://api.mangadex.org/manga?order[latestUploadedChapter]=desc&limit=12&includes[]=cover_art&&excludedTags%5B%5D=5920b825-4181-4a17-beeb-9918b0ff7a30&excludedTagsMode=AND&contentRating%5B%5D=safe&contentRating[]=safe
-
-  // const { data: MangaClassic } = useGetMangaQuery('rating');
+  } = useGetMangaQuery({ listOrder: orderType, offset: offset });
   const ObjectData = [
     {
-      items: MangaArray?.data,
+      items: mangaList,
     },
   ];
-  // const MostPopular = [
-  //   {
-  //     items: MangaClassic?.data,
-  //   },
-  // ];
+
+  console.log(ObjectData);
+  React.useEffect(() => {
+    if (MangaArray?.data) {
+      setMangaList((prevList) => [...prevList, ...MangaArray.data]);
+    }
+  }, [MangaArray]);
 
   if (mangaLoading) {
     return <div>Загрузка...</div>;
@@ -48,15 +57,23 @@ export const Home = () => {
   if (mangaError) {
     return <ErrorComponent />;
   }
-  console.log(ObjectData);
+
   return (
     <main>
       <div className={styles.layout}>
         {ObjectData?.map((props, index) => <MangaBlock {...props} key={index} />)}
       </div>
-      {/* <div className={styles.layout2}>
-        {MostPopular?.map((props, index) => <MangaBlock {...props} key={index} />)}
-      </div> */}
+      <div>
+        {ObjectData?.length > 0 && (
+          <Button
+            onClick={handleLoadMore}
+            version={'unfilled'}
+            tag={'button'}
+            label="LOAD MORE..."
+          />
+        )}
+      </div>
+      <Footer />
     </main>
   );
 };

@@ -9,4 +9,5 @@ export interface IconButtonProps {
   tag?: 'link' | 'button';
   href?: To;
   state?: any;
+  target?: string;
 }

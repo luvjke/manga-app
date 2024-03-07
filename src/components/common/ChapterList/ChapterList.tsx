@@ -55,6 +55,7 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
                 onClick={() => handleClickSort()}
                 icon={<IconSort />}
                 version={'custom'}
+                tag="button"
               />
             </div>
             <ul className={styles.chapters}>

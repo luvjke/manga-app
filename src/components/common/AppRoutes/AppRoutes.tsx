@@ -9,7 +9,6 @@ import { ChapterPage } from '../../../pages/ChapterPage';
 import { SearchPage } from '../../../pages/SearchPage';
 import { Header } from '../Header';
 import { FavoritesPages } from '../../../pages/FavoritesPages';
-
 // import { Footer } from '../Footer';
 
 export const AppRouter = () => {

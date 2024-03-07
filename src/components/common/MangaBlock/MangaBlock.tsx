@@ -5,10 +5,10 @@ import styles from './MangaBlock.module.scss';
 import { MangaBlockItem } from '../MangaBlockItem';
 
 export const MangaBlock = ({ items }: MangaCardProps) => {
-  console.log(items);
+  React.useEffect(() => {}, [items]);
   return (
     <ul className={styles.container}>
-      {items?.map((mangaData) => (
+      {items?.map((mangaData, index) => (
         <MangaBlockItem
           key={mangaData.id}
           id={mangaData.id}
@@ -16,6 +16,7 @@ export const MangaBlock = ({ items }: MangaCardProps) => {
           coverId={mangaData.relationships.find(({ type }) => type === 'cover_art')?.id || ''}
           contentRating={mangaData.attributes?.contentRating}
           mangaData={mangaData}
+          index={index}
         />
       ))}
     </ul>

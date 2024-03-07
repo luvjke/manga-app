@@ -10,11 +10,10 @@ export const mangaApi = createApi({
   reducerPath: 'mangaApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.mangadex.org/' }),
   endpoints: (builder) => ({
-    getManga: builder.query<MangaObject, string>({
-      query: (listOrder: string | undefined) =>
-        `manga?order[${listOrder}]=desc&limit=15&includes[]=cover_art${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}`,
+    getManga: builder.query<MangaObject, { listOrder: string | undefined; offset: number }>({
+      query: ({ listOrder, offset }) =>
+        `manga?order[${listOrder}]=desc&limit=15&includes[]=cover_art${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}&offset=${offset}`,
     }),
-    // &offset=
     getCover: builder.query<CoverObject, string>({
       query: (id) => `cover/${id}`,
     }),

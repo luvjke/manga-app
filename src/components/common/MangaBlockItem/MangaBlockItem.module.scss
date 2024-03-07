@@ -38,3 +38,6 @@
     white-space: nowrap;
   }
 }
+.container {
+  @include appearances();
+}

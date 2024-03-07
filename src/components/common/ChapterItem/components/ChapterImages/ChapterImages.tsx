@@ -22,8 +22,10 @@ export const ChapterImages = (img: Images) => {
         )}
       </div>
       <div className={styles.button_container}>
-        {currentPage > 0 && (
+        {currentPage > 0 ? (
           <div className={styles.button_item} onClick={() => setCurrentPage(currentPage - 1)}></div>
+        ) : (
+          <div></div>
         )}
         <div></div>
         {totalPages && currentPage < totalPages - 1 && (

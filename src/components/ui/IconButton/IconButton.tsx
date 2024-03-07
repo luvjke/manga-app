@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 
 import styles from './IconButton.module.scss';
 import { IconButtonProps } from './IconButton.props';
-export const IconButton = ({ icon, version, onClick, tag, href, state }: IconButtonProps) => {
+export const IconButton = ({
+  icon,
+  version,
+  onClick,
+  tag,
+  href,
+  state,
+  target,
+}: IconButtonProps) => {
   const buttonClassNames = classNames(
     styles.button,
     version && styles[version],
@@ -16,7 +24,7 @@ export const IconButton = ({ icon, version, onClick, tag, href, state }: IconBut
       {icon && <span className={styles.seacrspan}>{icon}</span>}
     </button>
   ) : (
-    <Link to={href ?? ''} className={buttonClassNames} state={state}>
+    <Link to={href ?? ''} className={buttonClassNames} state={state} target={target}>
       {icon}
     </Link>
   );
