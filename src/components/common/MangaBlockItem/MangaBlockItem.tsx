@@ -11,11 +11,11 @@ export const MangaBlockItem = ({
   coverId,
   // contentRating,
   mangaData,
-  index,
+  index = 0,
 }: ItemBlock) => {
   const { data: cover, isSuccess, isFetching } = useGetCoverQuery(coverId);
   // const { data: statistic } = useGetStatisticsQuery(id);
-  const BASE_ANIMATION_DELAY = 0.2;
+  const BASE_ANIMATION_DELAY = 0.1;
   const animationDelay = index * BASE_ANIMATION_DELAY;
   const COVER_IMAGE = cover?.data.attributes.fileName;
   // const AVERAGE_SCORE = statistic?.statistics[`${id}`].rating.average.toFixed(1);

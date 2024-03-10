@@ -1,7 +1,8 @@
-import { ChangeEvent, ReactNode } from 'react';
+import { ChangeEvent, KeyboardEvent, ReactNode } from 'react';
 
 export interface InputProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
   button?: ReactNode;
   placeholder?: string;
   isDisabled?: boolean;

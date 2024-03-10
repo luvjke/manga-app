@@ -4,7 +4,14 @@ import classNames from 'classnames';
 import { InputProps } from './Input.props';
 import styles from './Input.module.scss';
 
-export const Input = ({ onChange, placeholder, icon, version, isDisabled }: InputProps) => {
+export const Input = ({
+  onChange,
+  placeholder,
+  icon,
+  version,
+  isDisabled,
+  onKeyDown,
+}: InputProps) => {
   const InputClassNames = classNames(
     styles.input,
     version && styles[version],
@@ -16,6 +23,7 @@ export const Input = ({ onChange, placeholder, icon, version, isDisabled }: Inpu
       placeholder={placeholder}
       onChange={onChange}
       disabled={isDisabled}
+      onKeyDown={onKeyDown}
     >
       {icon && <span className={styles.icon}>{icon}</span>}
     </input>

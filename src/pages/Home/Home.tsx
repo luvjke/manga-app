@@ -65,12 +65,14 @@ export const Home = () => {
       </div>
       <div>
         {ObjectData?.length > 0 && (
-          <Button
-            onClick={handleLoadMore}
-            version={'unfilled'}
-            tag={'button'}
-            label="LOAD MORE..."
-          />
+          <div className={styles.pagination}>
+            <Button
+              onClick={handleLoadMore}
+              version={'pagination'}
+              tag={'button'}
+              label="LOAD MORE..."
+            />
+          </div>
         )}
       </div>
       <Footer />
