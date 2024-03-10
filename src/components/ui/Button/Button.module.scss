@@ -52,6 +52,15 @@
     background-color: $black-header;
   }
 }
+.advanced {
+  padding: 8px 15px;
+  background-color: $black-theme;
+  border: $search-border;
+  border-radius: 2px;
+  &:hover {
+    background-color: $black-header;
+  }
+}
 .label {
   @include textSemibold-16();
 }

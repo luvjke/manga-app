@@ -3,7 +3,7 @@ import { To } from 'react-router-dom';
 
 export interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  version: 'unfilled' | 'filled' | 'outline' | 'custom' | 'pagination';
+  version: 'unfilled' | 'filled' | 'outline' | 'custom' | 'pagination' | 'advanced';
   label: string;
   icon?: ReactNode;
   disabled?: boolean;

@@ -1,0 +1,51 @@
+@import '../../../scss/mixins/text.scss';
+@import '../../../scss/variables.scss';
+@import '../../../scss//mixins/reset.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.search_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.input_side {
+  margin-right: 50px;
+}
+.advanced_close {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transform-origin: bottom;
+  transition:
+    height 0.2s,
+    opacity 0.2s,
+    transform 0s 0.2s;
+  animation-duration: 0.2s;
+}
+.advanced_inputs {
+  opacity: 1;
+  visibility: visible;
+  width: 700px;
+  height: 500px;
+  background-color: forestgreen;
+  //   background-color: $black-theme;
+  transform-origin: bottom;
+  transition:
+    height 0.2s,
+    visibility 0.2s,
+    opacity 0.2s,
+    transform 0s 0.2s;
+  animation-duration: 0.2s;
+}
+.checkboxs {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    margin-top: 8px;
+    margin-left: 17px;
+    flex: 0 0 16.666667%;
+  }
+}

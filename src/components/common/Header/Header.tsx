@@ -19,6 +19,7 @@ export const Header = () => {
 
   const refreshStates = () => {
     IsSetSearchOpen(false);
+    setSearchValue('');
   };
 
   const onChangeValue = (text: string) => {
@@ -80,6 +81,14 @@ export const Header = () => {
                 version={'filled'}
                 tag="button"
               />
+            </div>
+            <div>
+              <Button
+                version={'advanced'}
+                label={'Advanced'}
+                tag={'link'}
+                href={'/search'}
+              ></Button>
             </div>
             <div className={styles.nav_favorite}>
               <IconButton icon={<FilledIcon />} href={`/favorite`} version={'filled'} tag="link" />

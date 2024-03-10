@@ -17,16 +17,16 @@ export const Home = () => {
 
   // switch (orderType) {
   //   case 'rating':
-  //     currentPage = 'Top Rated';
+  //     orderType = 'Top Rated';
   //     break;
   //   case 'createdAt':
-  //     currentPage = 'New Releases';
+  //     orderType = 'New Releases';
   //     break;
   //   case 'followedCount':
-  //     currentPage = 'Most Popular';
+  //     orderType = 'Most Popular';
   //     break;
   //   case 'latestUploadedChapter':
-  //     currentPage = 'Latest Chapters';
+  //     orderType = 'Latest Chapters';
   //     break;
   // }
   const handleLoadMore = () => {
@@ -44,7 +44,6 @@ export const Home = () => {
     },
   ];
 
-  console.log(ObjectData);
   React.useEffect(() => {
     if (MangaArray?.data) {
       setMangaList((prevList) => [...prevList, ...MangaArray.data]);

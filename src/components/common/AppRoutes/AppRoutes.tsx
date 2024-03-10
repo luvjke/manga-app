@@ -22,6 +22,7 @@ export const AppRouter = () => {
         <Route path={RoutesMap.CHAPTER} element={<ChapterPage />} />
         <Route path={RoutesMap.SEARCH} element={<SearchPage />} />
         <Route path={RoutesMap.FAVORITE} element={<FavoritesPages />} />
+        <Route path={RoutesMap.ADVANCED} element={<SearchPage />} />
       </Routes>
       {/* <Footer /> */}
     </>
