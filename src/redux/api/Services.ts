@@ -23,9 +23,9 @@ export const mangaApi = createApi({
     getChapter: builder.query<SoloChapterObject, string>({
       query: (id) => `/at-home/server/${id}`,
     }),
-    getSeachValue: builder.query<MangaObject, string>({
-      query: (searchValue) =>
-        `manga?title=${searchValue}&limit=40${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}`,
+    getSeachValue: builder.query<MangaObject, { searchValue: string; tags?: string }>({
+      query: ({ searchValue, tags }) =>
+        `manga?title=${searchValue}&limit=15${tags ? tags : ''}${ApiTags.EXCLUDEDTAGS}${ApiTags.CONTENTTAGS}`,
     }),
     getStatistics: builder.query<StatisticObject, string>({
       query: (id) => `/statistics/manga/${id}`,

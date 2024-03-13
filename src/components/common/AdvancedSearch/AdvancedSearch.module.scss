@@ -30,8 +30,8 @@
   visibility: visible;
   width: 900px;
   height: 500px;
-  background-color: forestgreen;
-  //   background-color: $black-theme;
+
+  background-color: $block-background;
   transform-origin: bottom;
   transition:
     height 0.2s,
@@ -43,6 +43,7 @@
 .checkboxs {
   display: flex;
   flex-wrap: wrap;
+  margin: 15px 0;
   li {
     margin: 7px 0 8px;
     padding: 0 15px;
