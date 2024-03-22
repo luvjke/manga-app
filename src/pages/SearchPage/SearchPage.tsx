@@ -9,7 +9,7 @@ import { AdvancedSearch } from '../../components/common/AdvancedSearch';
 export const SearchPage = () => {
   const location = useLocation();
   const searchValue: string = location.state ? location.state[0] : '';
-  const InputValues: string = location.state ? location.state[0] : '';
+  const InputValues: string = location.state ? location.state[1] : '';
   console.log(location.state);
 
   const { data: SearchArray } = useGetSeachValueQuery({

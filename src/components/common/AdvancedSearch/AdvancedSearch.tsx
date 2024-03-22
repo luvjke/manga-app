@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import { debounce } from 'lodash';
 
 import styles from './AdvancedSearch.module.scss';
 import { Input } from '../../ui/Input';
@@ -7,6 +8,18 @@ import { Button } from '../../ui/Button';
 export const AdvancedSearch = () => {
   const [isAdvancedOpen, IsSetAdvancedOpen] = React.useState(false);
   const [selectedGenres, setSelectedGenres] = React.useState<string[]>([]);
+  const [searchValue, setValue] = React.useState(' ');
+  const delay = 400;
+
+  const onChangeValue = (text: string) => {
+    setValue(text);
+  };
+  const updateSearchValue = debounce((str: string) => {
+    onChangeValue(str);
+  }, delay);
+  const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    updateSearchValue(event.target.value);
+  };
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
@@ -184,8 +197,14 @@ export const AdvancedSearch = () => {
     <div className={styles.container}>
       <div className={styles.search_content}>
         <form className={styles.input_side}>
-          <Input onChange={() => console.log()} version={'unfilled'} />
-          <Button version={'outline'} label={'Search'} />
+          <Input onChange={onChangeSearch} version={'advanced'} />
+          <Button
+            version={'custom'}
+            label={'Search'}
+            href={`/search/${searchValue}`}
+            state={[searchValue]}
+            tag={'link'}
+          />
         </form>
         <div>
           <Button version={'outline'} label={'Advanced'} onClick={handleClickAdvancedButton} />
