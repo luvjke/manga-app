@@ -10,6 +10,7 @@
   padding: 0;
   width: 36px;
 }
+
 .filled {
   background-color: $black-header;
   border: none;
@@ -19,4 +20,21 @@
   outline: none;
   padding: 0;
   width: 36px;
+}
+
+.unfilled {
+  width: 30px;
+  height: 30px;
+  background-color: $black-theme;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  svg path {
+    fill: inherit;
+  }
+  &:hover {
+    background-color: hsla(0, 0%, 14%, 0.6);
+    transition: all 0.15s ease;
+  }
 }

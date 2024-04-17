@@ -196,16 +196,15 @@ export const AdvancedSearch = () => {
   return (
     <div className={styles.container}>
       <div className={styles.search_content}>
-        <form className={styles.input_side}>
-          <Input onChange={onChangeSearch} version={'advanced'} />
-          <Button
-            version={'custom'}
-            label={'Search'}
-            href={`/search/${searchValue}`}
-            state={[searchValue]}
-            tag={'link'}
-          />
-        </form>
+        <Input onChange={onChangeSearch} version={'advanced'} />
+        <Button
+          version={'custom'}
+          label={'Search'}
+          href={`/search/${searchValue}`}
+          state={[searchValue]}
+          tag={'link'}
+        />
+
         <div>
           <Button version={'outline'} label={'Advanced'} onClick={handleClickAdvancedButton} />
         </div>

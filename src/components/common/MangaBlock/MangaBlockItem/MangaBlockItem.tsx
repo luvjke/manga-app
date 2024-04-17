@@ -3,22 +3,14 @@ import { Link } from 'react-router-dom';
 
 import styles from './MangaBlockItem.module.scss';
 import { ItemBlock } from './MangaBlockItem.props';
-import { useGetCoverQuery } from '../../../redux/api/Services';
-import luffypng from '../../../assets/img/luffypng.png';
-export const MangaBlockItem = ({
-  id,
-  attributes,
-  coverId,
-  // contentRating,
-  mangaData,
-  index = 0,
-}: ItemBlock) => {
+import { useGetCoverQuery } from '../../../../redux/api/Services';
+import luffypng from '../../../../assets/img/luffypng.png';
+export const MangaBlockItem = ({ id, attributes, coverId, mangaData, index = 0 }: ItemBlock) => {
   const { data: cover, isSuccess, isFetching } = useGetCoverQuery(coverId);
-  // const { data: statistic } = useGetStatisticsQuery(id);
+
   const BASE_ANIMATION_DELAY = 0.1;
   const animationDelay = index * BASE_ANIMATION_DELAY;
   const COVER_IMAGE = cover?.data.attributes.fileName;
-  // const AVERAGE_SCORE = statistic?.statistics[`${id}`].rating.average.toFixed(1);
 
   const titles =
     attributes.title.en ||
@@ -26,6 +18,7 @@ export const MangaBlockItem = ({
     attributes.title.ja ||
     attributes.title.ru ||
     attributes.title.ko;
+
   return (
     <li style={{ animationDelay: `${animationDelay}s` }} className={styles.container}>
       {isFetching && (
@@ -46,9 +39,7 @@ export const MangaBlockItem = ({
               />
             </div>
             <div className={styles.infocontainer}>
-              {/* <p className={styles.average}>{AVERAGE_SCORE}</p> */}
               <h2 className={styles.titlename}>{titles}</h2>
-              {/* <p className={styles.raiting}>{contentRating}</p> */}
             </div>
           </div>
         </Link>

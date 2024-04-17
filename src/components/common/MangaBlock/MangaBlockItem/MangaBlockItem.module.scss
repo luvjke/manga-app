@@ -1,7 +1,7 @@
-@import '../../../scss/variables.scss';
-@import '../../../scss/mixins/utils.scss';
-@import '../../../scss/mixins/text.scss';
-@import '../../../scss/mixins/reset.scss';
+@import '../../../../scss/variables.scss';
+@import '../../../../scss/mixins/utils.scss';
+@import '../../../../scss/mixins/text.scss';
+@import '../../../../scss/mixins/reset.scss';
 
 .item {
   @include textBold-9();
@@ -12,6 +12,7 @@
     height: 280px;
     width: 186px;
   }
+
   .image {
     height: 280px;
     width: 186px;
@@ -31,13 +32,16 @@
   .average {
     color: $sub-gray;
   }
+
   .titlename {
     overflow: hidden;
+
     // text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 }
+
 .container {
   @include appearances();
 }

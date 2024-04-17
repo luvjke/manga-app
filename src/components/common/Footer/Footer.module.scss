@@ -4,11 +4,12 @@
 
 .footer_container {
   background-color: $black-theme;
-  max-width: 100%;
   border-top: $footer-border;
+  max-width: 100%;
 }
+
 .box_navigation {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }

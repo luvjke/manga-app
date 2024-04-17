@@ -6,53 +6,59 @@
   display: flex;
   flex-direction: column;
 }
+
 .search_content {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .input_side {
   display: flex;
   flex-direction: row;
+  margin-bottom: 15px;
+  margin-right: 50px;
   max-width: 865px;
   width: 100%;
-  margin-right: 50px;
-  margin-bottom: 15px;
 }
+
 .advanced_close {
-  opacity: 0;
-  visibility: hidden;
+  animation-duration: 0.2s;
   height: 0;
+  opacity: 0;
   transform-origin: bottom;
   transition:
     height 0.2s,
     opacity 0.2s,
     transform 0s 0.2s;
-  animation-duration: 0.2s;
+  visibility: hidden;
 }
-.advanced_inputs {
-  opacity: 1;
-  visibility: visible;
-  width: 900px;
-  height: 500px;
 
+.advanced_inputs {
+  animation-duration: 0.2s;
   background-color: $block-background;
+  height: 500px;
+  opacity: 1;
   transform-origin: bottom;
   transition:
     height 0.2s,
     visibility 0.2s,
     opacity 0.2s,
     transform 0s 0.2s;
-  animation-duration: 0.2s;
+  visibility: visible;
+  width: 900px;
 }
+
 .checkboxs {
   display: flex;
   flex-wrap: wrap;
   margin: 15px 0;
+
   li {
+    flex: 0 0 16.666667%;
     margin: 7px 0 8px;
     padding: 0 15px;
-    flex: 0 0 16.666667%;
+
     // input:checked {
 
     // }

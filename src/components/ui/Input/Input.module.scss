@@ -13,12 +13,15 @@
   &:disabled {
     pointer-events: none;
   }
+
   &:focus {
     background-color: #232323;
   }
+
   &:hover {
     background-color: #232323;
   }
+
   &::placeholder {
   }
 }
@@ -33,16 +36,17 @@
 }
 
 .custom {
+  border: $search-border;
+  border-radius: 0;
   padding: 13px 115px 13px 15px;
-  width: 100%;
-  border: $search-border;
-  border-radius: 0;
   transition: background-color 200ms ease;
+  width: 100%;
 }
+
 .advanced {
-  padding: 7px 50px 7px 15px;
-  width: 100%;
   border: $search-border;
   border-radius: 0;
+  padding: 7px 50px 7px 15px;
   transition: background-color 200ms ease;
+  width: 100%;
 }

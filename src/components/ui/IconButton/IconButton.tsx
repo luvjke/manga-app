@@ -21,7 +21,7 @@ export const IconButton = ({
 
   return tag === 'button' ? (
     <button className={buttonClassNames} onClick={onClick}>
-      {icon && <span className={styles.seacrspan}>{icon}</span>}
+      {icon && <>{icon}</>}
     </button>
   ) : (
     <Link to={href ?? ''} className={buttonClassNames} state={state} target={target}>

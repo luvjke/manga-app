@@ -8,8 +8,8 @@ import {
   addFavouriteManga,
   removeFavouriteManga,
 } from '../../../redux/favoriteSlice/favoriteSlice';
-import { ReactComponent as FilledStar } from '../../../assets/icons/FillStar.svg';
-import { ReactComponent as OutlineStar } from '../../../assets/icons/OutlineStar.svg';
+import { ReactComponent as FilledStar } from '../../../assets/icons/FavoriteFillHearth.svg';
+import { ReactComponent as OutlineStar } from '../../../assets/icons/FavoriteOutHearth.svg';
 import { favouriteMangaSelector } from '../../../redux/favoriteSlice/selectors';
 
 export const MangaInfo = ({ mangaData, coverFile }: MangaInfoProps) => {

@@ -39,7 +39,7 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
     }
   };
   const dateFilterFunc = (string: string) => {
-    return string.replace(/\T.*/, '').split('-').reverse().join('.');
+    return string.replace(/T.*/, '').split('-').reverse().join('.');
   };
 
   return (

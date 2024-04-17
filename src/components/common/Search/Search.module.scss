@@ -4,12 +4,12 @@
 @import '../../../scss/mixins/reset.scss';
 
 .data_container {
+  color: #ffffff;
   display: flex;
-  position: absolute;
-  z-index: 1000;
   margin-top: 0.5rem;
   max-width: 220px;
-  color: #ffffff;
+  position: absolute;
+  z-index: 1000;
 
   @media (min-width: 640px) {
     width: 75%;

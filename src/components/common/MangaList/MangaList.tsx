@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { MangaCardProps } from './MangaBlock.props';
-import styles from './MangaBlock.module.scss';
-import { MangaBlockItem } from './MangaBlockItem';
+import styles from './MangaList.module.scss';
+import { MangaListItem } from './MangaListItem';
+import { MangaCardProps } from '../MangaBlock/MangaBlock.props';
 
-export const MangaBlock = ({ items }: MangaCardProps) => {
+export const MangaList = ({ items }: MangaCardProps) => {
   React.useEffect(() => {}, [items]);
   return (
     <ul className={styles.container}>
       {items?.map((mangaData, index) => (
-        <MangaBlockItem
+        <MangaListItem
           key={mangaData.id}
           id={mangaData.id}
           attributes={mangaData.attributes}

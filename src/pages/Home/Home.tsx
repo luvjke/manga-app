@@ -8,12 +8,21 @@ import { ErrorComponent } from '../../components/common/ErrorComponent';
 import { Footer } from '../../components/common/Footer';
 import { MangaData } from '../../redux/api/types/manga';
 import { Button } from '../../components/ui/Button';
-
+import { MangaList } from '../../components/common/MangaList';
+import { DisplayType } from './Home.props';
+import { IconButton } from '../../components/ui/IconButton';
+import { ReactComponent as GridIcon } from '../../../src/assets/icons/gridIcon.svg';
+import { ReactComponent as AlbumIcon } from '../../../src/assets/icons/albumIcon.svg';
 export const Home = () => {
   // const { orderType } = useParams();
   const [mangaList, setMangaList] = React.useState<MangaData[]>([]);
   const [offset, setOffset] = React.useState(0);
+  const [displayType, setDisplayType] = React.useState<DisplayType>(DisplayType.block);
   let orderType: string = 'latestUploadedChapter';
+
+  const handleDisplayClick = (displayType: DisplayType) => {
+    setDisplayType(displayType);
+  };
 
   // switch (orderType) {
   //   case 'rating':
@@ -59,8 +68,34 @@ export const Home = () => {
 
   return (
     <main>
-      <div className={styles.layout}>
-        {ObjectData?.map((props, index) => <MangaBlock {...props} key={index} />)}
+      <div className={styles.container}>
+        <div className={styles.upper}>sds</div>
+        <div className={styles.wrapper}>
+          {/* <h1 className={styles.mainh1}>Last updates</h1> */}
+          <div className={styles.layout_selector}>
+            <IconButton
+              version={'unfilled'}
+              onClick={() => handleDisplayClick(DisplayType.block)}
+              icon={<GridIcon />}
+              tag="button"
+            ></IconButton>
+            <IconButton
+              version={'unfilled'}
+              onClick={() => handleDisplayClick(DisplayType.list)}
+              icon={<AlbumIcon />}
+              tag="button"
+            ></IconButton>
+          </div>
+          <div className={styles.layout}>
+            {ObjectData?.map((props, index) =>
+              displayType === DisplayType.block ? (
+                <MangaBlock {...props} key={index} />
+              ) : (
+                <MangaList {...props} key={index} />
+              )
+            )}
+          </div>
+        </div>
       </div>
       <div>
         {ObjectData?.length > 0 && (

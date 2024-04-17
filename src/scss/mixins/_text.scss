@@ -29,6 +29,11 @@
   font-size: 9px;
   font-weight: $font-weight-bold;
 }
+@mixin textBold-12 {
+  @include basic-text();
+  font-size: 12px;
+  font-weight: $font-weight-bold;
+}
 
 @mixin textBold-45 {
   @include basic-text();

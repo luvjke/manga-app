@@ -6,7 +6,7 @@ import styles from './Header.module.scss';
 import { ReactComponent as MainIcon } from '../../../assets/icons/Main.svg';
 import { RoutesMap } from '../../../common/constans';
 import { ReactComponent as SearchIcon } from '../../../assets/icons/search-icon.svg';
-import { ReactComponent as FilledIcon } from '../../../assets/icons/FillStar.svg';
+import { ReactComponent as FilledIcon } from '../../../assets/icons/FavoriteFillHearth.svg';
 import { IconButton } from '../../ui/IconButton';
 import { Button } from '../../ui/Button';
 import { Input } from '../../ui/Input';
@@ -63,6 +63,13 @@ export const Header = () => {
                   state={[searchValue]}
                   tag={'link'}
                 />
+
+                <Button
+                  version={'advanced'}
+                  label={'Advanced'}
+                  tag={'link'}
+                  href={'/search'}
+                ></Button>
               </div>
             </form>
           </li>
@@ -82,14 +89,7 @@ export const Header = () => {
                 tag="button"
               />
             </div>
-            <div>
-              <Button
-                version={'advanced'}
-                label={'Advanced'}
-                tag={'link'}
-                href={'/search'}
-              ></Button>
-            </div>
+
             <div className={styles.nav_favorite}>
               <IconButton icon={<FilledIcon />} href={`/favorite`} version={'filled'} tag="link" />
             </div>

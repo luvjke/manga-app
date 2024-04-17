@@ -3,13 +3,14 @@
 @import '../../../scss//mixins/reset.scss';
 
 .header {
-  background-color: #232323;
+  background-color: $black-header;
   max-width: 100%;
+
   .right_container {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     gap: 15px;
+    justify-content: center;
   }
 }
 
@@ -26,46 +27,49 @@
 }
 
 .search_main {
-  opacity: 1;
-  visibility: visible;
-  height: 96px;
+  animation-duration: 0.2s;
   background-color: $black-theme;
+  height: 96px;
+  opacity: 1;
   transform-origin: top;
   transition:
     height 0.2s,
     visibility 0.2s,
     opacity 0.2s,
     transform 0s 0.2s;
-  animation-duration: 0.2s;
+  visibility: visible;
+
   li {
-    position: relative;
-    top: 50%;
     left: 0;
+    position: relative;
     right: 0;
-    transform: translateY(-50%);
     text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
 .search_close {
-  opacity: 0;
-  visibility: hidden;
+  animation-duration: 0.2s;
   height: 0;
+  opacity: 0;
   transform-origin: top;
   transition:
     height 0.2s,
     visibility 0.2s,
     opacity 0.2s,
     transform 0s 0.2s;
-  animation-duration: 0.2s;
+  visibility: hidden;
 }
+
 .container_search {
   display: flex;
 }
+
 .post_search {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 15px;
   height: 50px;
+  margin: 0 auto;
+  max-width: 780px;
+  padding: 0 15px;
   width: 100%;
 }
