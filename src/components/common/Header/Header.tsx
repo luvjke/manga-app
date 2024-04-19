@@ -37,25 +37,15 @@ export const Header = () => {
   const handleClickSearchButton = () => {
     IsSetSearchOpen((prev) => !prev);
   };
-  const handleBlockInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      event.preventDefault(); // Предотвращаем отправку формы
-    }
-  };
+
   return (
     <header className={styles.header}>
       <div>
         <ul className={!isSearchOpen ? styles.search_close : styles.search_main}>
           <li className={styles.blog_search}>
-            <form className={styles.post_search}>
+            <div className={styles.post_search}>
               <div className={styles.container_search}>
-                <Input
-                  placeholder="Search "
-                  onChange={onChangeSearch}
-                  version={'custom'}
-                  onKeyDown={handleBlockInput}
-                />
-
+                <Input placeholder="Search " onChange={onChangeSearch} version={'custom'} />
                 <Button
                   version={'custom'}
                   label={'Search'}
@@ -63,7 +53,6 @@ export const Header = () => {
                   state={[searchValue]}
                   tag={'link'}
                 />
-
                 <Button
                   version={'advanced'}
                   label={'Advanced'}
@@ -71,7 +60,7 @@ export const Header = () => {
                   href={'/search'}
                 ></Button>
               </div>
-            </form>
+            </div>
           </li>
         </ul>
         <nav className={styles.header_nav}>

@@ -195,23 +195,26 @@ export const AdvancedSearch = () => {
   ];
   return (
     <div className={styles.container}>
-      <div className={styles.search_content}>
-        <Input onChange={onChangeSearch} version={'advanced'} />
-        <Button
-          version={'custom'}
-          label={'Search'}
-          href={`/search/${searchValue}`}
-          state={[searchValue]}
-          tag={'link'}
-        />
-
-        <div>
-          <Button version={'outline'} label={'Advanced'} onClick={handleClickAdvancedButton} />
-        </div>
+      <div className={styles.wrapper}>
+        <Button version={'advanced'} label={'Advanced'} onClick={handleClickAdvancedButton} />
       </div>
-      <div className={!isAdvancedOpen ? styles.advanced_close : styles.advanced_inputs}>
-        <form>
+      {!isAdvancedOpen ? (
+        <div className={styles.advanced_close}></div>
+      ) : (
+        <div className={styles.advanced_inputs}>
           <ul>
+            <li>
+              <div className={styles.search_content}>
+                <Input onChange={onChangeSearch} version={'custom'} />
+                <Button
+                  version={'custom'}
+                  label={'Search'}
+                  href={`/search/${searchValue}`}
+                  state={[searchValue]}
+                  tag={'link'}
+                />
+              </div>
+            </li>
             <li>
               <ul className={styles.checkboxs}>
                 {checkboxData.map((data) => (
@@ -237,8 +240,8 @@ export const AdvancedSearch = () => {
               />
             </li>
           </ul>
-        </form>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

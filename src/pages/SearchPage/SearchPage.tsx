@@ -25,10 +25,14 @@ export const SearchPage = () => {
   return (
     <main>
       <div className={styles.layout}>
-        <div className={styles.advanced}>
-          <AdvancedSearch />
+        <div className={styles.wrapper}>
+          <div className={styles.advanced}>
+            <AdvancedSearch />
+          </div>
+          <div className={styles.layout}>
+            {ObjectData?.map((props, index) => <MangaBlock {...props} key={index} />)}
+          </div>
         </div>
-        <div>{ObjectData?.map((props, index) => <MangaBlock {...props} key={index} />)}</div>
       </div>
     </main>
   );

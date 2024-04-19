@@ -38,3 +38,19 @@
     transition: all 0.15s ease;
   }
 }
+.custom2 {
+  width: 45px;
+  height: 45px;
+  background-color: $black-theme;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  svg path {
+    fill: inherit;
+  }
+  &:hover {
+    background-color: hsla(0, 0%, 14%, 0.6);
+    transition: all 0.15s ease;
+  }
+}
