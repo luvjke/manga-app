@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './ChapterItem.module.scss';
 import { ChapterItemProps, DisplayMangaType } from './ChapterItem.props';
@@ -8,7 +9,7 @@ import { IconButton } from '../../ui/IconButton';
 import { ReactComponent as SettingsIcon } from '../../../assets/icons/SettingsIcon.svg';
 import { ChapterTape } from './components/ChapterTape';
 import { Button } from '../../ui/Button';
-export const ChapterItem = ({ chapterId }: ChapterItemProps) => {
+export const ChapterItem = ({ chapterId, otherChapters }: ChapterItemProps) => {
   const [containerWidth, setContainerWidth] = React.useState(400);
   const [isSettingsOpen, IsSetSettingsOpen] = React.useState(false);
   const [displayType, setDisplayType] = React.useState<DisplayMangaType>(DisplayMangaType.pages);
@@ -90,6 +91,25 @@ export const ChapterItem = ({ chapterId }: ChapterItemProps) => {
                     onClick={() => handleDisplayClick(DisplayMangaType.tape)}
                   />
                 </div>
+              </div>
+              <div>
+                {otherChapters?.map((dataChapters) => {
+                  return (
+                    <li key={dataChapters.id}>
+                      <Link
+                        to={`../manga/chapter/${dataChapters.id}`}
+                        state={[dataChapters.id, otherChapters]}
+                      >
+                        <div className={styles.chapter}>
+                          <p className={styles.title}>
+                            Chapter {dataChapters.attributes.chapter}{' '}
+                            {dataChapters.attributes.title}
+                          </p>
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                })}
               </div>
             </div>
           </div>

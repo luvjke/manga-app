@@ -65,7 +65,10 @@ export const ChapterList = ({ id }: ChapterInfoProps) => {
                 clonedArray?.map((dataChapters) => {
                   return (
                     <li key={dataChapters.id}>
-                      <Link to={`../manga/chapter/${dataChapters.id}`} state={[dataChapters.id]}>
+                      <Link
+                        to={`../manga/chapter/${dataChapters.id}`}
+                        state={[dataChapters.id, clonedArray]}
+                      >
                         <div className={styles.chapter}>
                           <p className={styles.title}>
                             Chapter {dataChapters.attributes.chapter}{' '}
