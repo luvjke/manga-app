@@ -6,11 +6,13 @@
 .item {
   @include textBold-12();
   display: flex;
+
   .image_block {
     .imgs_fetching {
       height: 130px;
       width: 220px;
     }
+
     .image {
       height: 190px;
       width: 140px;
@@ -21,19 +23,21 @@
       }
     }
   }
+
   .infocontainer {
-    display: flex;
     align-items: center;
     background-color: $black-header;
-    padding: 0 15px;
+    display: flex;
     height: 190px;
     max-width: 347px;
+    padding: 0 15px;
     width: 100%;
 
     .content_raiting {
       color: $sub-gray;
       margin-bottom: 15px;
     }
+
     .titlename {
       overflow: hidden;
 
@@ -41,14 +45,16 @@
       text-overflow: ellipsis;
       white-space: wrap;
     }
+
     .statistic_containter {
       .stats {
-        margin-right: 16px;
         font-size: 11px;
+        margin-right: 16px;
       }
     }
   }
 }
+
 .container {
   @include appearances();
 }

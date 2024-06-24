@@ -1,38 +1,43 @@
 @import '../../../scss/variables';
+
 .chapters {
   align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   width: 100%;
 }
+
 .setting_close {
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
 }
+
 .setting_open {
   display: flex;
-  visibility: unset;
   opacity: 1;
+  visibility: unset;
+
   .setting_tab {
-    width: 300px;
-    height: 100%;
     background-color: $black-header;
+    height: 100%;
+    width: 300px;
   }
 }
+
 .settings_buttons {
-  margin-top: 500px;
-  position: fixed;
-  top: 0;
   left: 0;
+  margin-top: 500px;
   margin-top: 20%;
-}
-.setting_tab {
   position: fixed;
   top: 0;
+}
+
+.setting_tab {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   gap: 15px;
+  justify-content: start;
+  position: fixed;
+  top: 0;
 }

@@ -23,34 +23,37 @@
 }
 
 .unfilled {
-  width: 30px;
-  height: 30px;
   background-color: $black-theme;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: 30px;
+  width: 30px;
 
   svg path {
     fill: inherit;
   }
+
   &:hover {
-    background-color: hsla(0, 0%, 14%, 0.6);
+    background-color: hsla(0deg, 0%, 14%, 0.6);
     transition: all 0.15s ease;
   }
 }
+
 .custom2 {
-  width: 45px;
-  height: 45px;
   background-color: $black-theme;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: 45px;
+  width: 45px;
 
   svg path {
     fill: inherit;
   }
+
   &:hover {
-    background-color: hsla(0, 0%, 14%, 0.6);
+    background-color: hsla(0deg, 0%, 14%, 0.6);
     transition: all 0.15s ease;
   }
 }

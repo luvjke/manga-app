@@ -1,12 +1,14 @@
 .container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-}
-.wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.wrapper {
   align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+
   .mainh1 {
     align-self: flex-start;
     font-size: 40px;
@@ -14,9 +16,9 @@
 }
 
 .layout_selector {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 10px;
 }
 
@@ -26,13 +28,15 @@
   margin-top: 10px;
   max-width: 100%;
 }
+
 .pagination {
   align-items: center;
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
 }
+
 .upper {
-  display: flex;
   align-self: flex-start;
+  display: flex;
 }

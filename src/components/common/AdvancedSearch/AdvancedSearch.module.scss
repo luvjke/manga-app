@@ -5,15 +5,17 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin-bottom: 15px;
+  width: 100%;
 }
+
 .wrapper {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
   margin-bottom: 15px;
+  width: 100%;
 }
+
 .search_content {
   display: flex;
   flex-direction: row;
@@ -23,19 +25,20 @@
   animation-duration: 0.2s;
   height: 0;
   opacity: 0;
-  width: 0;
   transform-origin: bottom;
   transition:
     height 0.2s,
     opacity 0.2s,
     transform 0s 0.2s;
   visibility: hidden;
+  width: 0;
 }
 
 .advanced_inputs {
   animation-duration: 0.2s;
   background-color: $block-background;
   height: 400px;
+  max-width: 990px;
   opacity: 1;
   transform-origin: top;
   transition:
@@ -44,7 +47,6 @@
     opacity 0.2s,
     transform 0s 0.2s;
   visibility: visible;
-  max-width: 990px;
   width: 100%;
 
   @media (max-width: 1230px) {
@@ -78,6 +80,7 @@
 
     // }
   }
+
   label {
     padding-left: 5px;
   }

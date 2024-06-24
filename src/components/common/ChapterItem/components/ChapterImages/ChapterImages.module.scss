@@ -5,11 +5,13 @@
   flex-direction: row;
   position: relative;
 }
+
 .wrapper {
   display: flex;
-  width: 100%;
   justify-content: center;
+  width: 100%;
 }
+
 .button_container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
