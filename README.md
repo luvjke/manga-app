@@ -1,16 +1,17 @@
-Installation
-To install and run the Manga Reader app, follow these steps:
+# Installation
+To install and run the Manga Reader app, follow these steps: 
+### install node.js
 
-Clone the repository:
+# Clone the repository:
 
-git clone https://github.com/luvjke/manga-app.git
+### git clone https://github.com/luvjke/manga-app.git
 
-cd manga-app
+### cd manga-app
 Install dependencies:
 
-npm install
+### npm install
 Start the development server:
 
-npm start
+### npm start
 This will open DevTools. You can then run the app on an emulator, simulator, or a physical device.
 
